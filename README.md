@@ -1,14 +1,9 @@
-jquery-countdownTimer
-=====================
-
-Reverse count down jquery plugin for displaying coundown as per your need. It also displays current time.
-
 [jquery-countdownTimer Plugin](http://plugins.jquery.com/countdownTimer/)- Reverse count down jQuery plugin for displaying coundown as per your need. It also displays current time.
 ===============================
 
 ## <a id="Introduction"></a>Introduction
 
-**Autofill** is a jQuery plugin for autofilling textboxes or textareas from another textboxes or textareas.
+**countdownTimer** is a reverse count down jQuery plugin for displaying coundown as per your need. It also displays current time.
 
 ## <a id="Overview"></a>Overview
 
