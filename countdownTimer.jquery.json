@@ -1,0 +1,39 @@
+{
+"name": "countdownTimer",
+"title": "jQuery countdownTimer",
+"description": "Reverse count down jQuery plugin for displaying countdown as per need. It also displays current time.",
+"keywords": [
+"jquery",
+"countdown",
+"timer",
+"countdownTimer",
+"reverse",
+"clock",
+"time",
+"hours",
+"minutes",
+"seconds",
+"date",
+"days"
+],
+"version": "0.3.0",
+"author": {
+"name": "Harshen Pandey",
+"url" : "https://github.com/harshen/"
+},
+"bugs": "https://github.com/harshen/jquery-countdownTimer/issues",
+"homepage": "https://github.com/harshen/jquery-countdownTimer",
+"licenses": [
+{
+"type": "MIT",
+"url": "http://opensource.org/licenses/MIT"
+},
+{
+"type": "GPLv3",
+"url": "http://www.gnu.org/licenses/gpl.html"
+}
+],
+"dependencies": {
+"jquery": ">=1.5"
+}
+}
