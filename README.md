@@ -1,42 +1,42 @@
-[jquery-countdownTimer Plugin](http://plugins.jquery.com/countdownTimer/)- Reverse count down jQuery plugin for displaying coundown as per your need. It also displays current time.
+[jquery-countdownTimer Plugin](http://plugins.jquery.com/countdownTimer/)- Reverse count down jQuery plugin.
 ===============================
 
 ## <a id="Introduction"></a>Introduction
 
-**countdownTimer** is a reverse count down jQuery plugin for displaying coundown as per your need. It also displays current time.
+**countdownTimer** is a reverse count down jQuery plugin for displaying countdown as per your need. It also displays current time.
 
-## <a id="Overview"></a>Overview
+## [Help the project](https://pledgie.com/campaigns/23663)
 
-### Plugin Features
+<a href='https://pledgie.com/campaigns/23663'><img alt='Click here to lend your support to: jQuery countdownTimer Plugin and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/23663.png?skin_name=chrome' border='0' ></a>
 
-+ Clone (copy) the text from one textbox box to another text box when the first textbox loses focus.
-+ Clone (copy) the text from one textarea to another textarea when the first textarea loses focus.
-+ Specify whether to override the input field everytime or one time via an external option.
-+ Specify the Id of the input field where another input field is to be cloned.
+This project is looking for help! [You can donate to the ongoing pledgie campaign](https://pledgie.com/campaigns/23663)
+and help spread the word. If you've used the plugin, or plan to use, consider a donation - any amount will help.
 
-### Options
+You can find the plan for how to spend the money on the [pledgie page](https://pledgie.com/campaigns/23663).
 
+## Getting Started
+
+Include jQuery, the plugin and its css file on a page. Add a div and span element. Then call the `countdowntimer` method with the required options on the span element id.
+
+```html
+<script type="text/javascript" src="jquery-2.0.3.js"></script>
+<script type="text/javascript" src="jquery.countdownTimer.js"></script>
+<link rel="stylesheet" type="text/css" href="jquery.countdownTimer.css" />
+
+<div id="countdowntimer"><span id="future_date"><span></div>
+
+<script type="text/javascript">
+	  $(function(){
+	    $('#future_date').countdowntimer({
+	      dateAndTime : "2015/01/01 00:00:00",
+	      size : "lg"
+	    });
+	  });
+</script>
 ```
-fieldId
-```
+For more information on how to use different options, [check the documentation](http://jqueryvalidation.org/documentation/).
 
-  Use this option to provide the Id of the field where cloning (copying) will take place. When not specified, by default it takes 
-the id of the field as "fieldId_copy" where fieldId is the Id of the field on which you called the autofill function of the 
-plugin i.e. it is the input field required to be cloned.
-
-```
-overrideFieldEverytime
-```
-  Use this option to provide the feature of whether you want to override or clone the input field everytime when the input field
-which is to be cloned is changed OR you want that the input field should be cloned only for the first time. 
-  It takes two parameters 
-  
-  1) true - Indicating input field cloned everytime.
-  2) false - Indicating input field cloned for only the first time.
-  
-  By default it is 'false'.
-
-Refer the demos for more clarity.
+Also refer the demos for more clarity.
 
 ### Dependencies
 
@@ -48,5 +48,5 @@ Please post bug reports and other contributions (enhancements, features) to the 
 
 ## <a id="License"></a>License
 
-Copyright (c) 2013 Harshen Pandey
+Copyright (c) 2014 Harshen Pandey
 Licensed under the MIT and GPLv3 license.
