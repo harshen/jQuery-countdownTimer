@@ -34,7 +34,7 @@ Include jQuery, the plugin and its css file on a page. Add a div and span elemen
 	  });
 </script>
 ```
-For more information on how to use different options, [check the documentation](http://jqueryvalidation.org/documentation/).
+For more information on how to use different options, [check the documentation](https://raw.github.com/harshen/jquery-countdownTimer/master/DOCS/jQuery_countdownTimer_Documentation/).
 
 Also refer the demos for more clarity.
 
