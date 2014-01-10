@@ -1,0 +1,242 @@
+jquery-countdownTimer Plugin 
+============================
+
+(http://plugins.jquery.com/countdownTimer/)
+
+Reverse count down jQuery plugin.
+
+--------------
+Introduction:-
+--------------
+
+CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need. It also displays current time.
+
+-------------
+Description:-
+-------------
+
+CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need. You can set a future date for reverse count down till that date or you can set time in hours, minutes and seconds for reverse countdown to zero. Also it provides the functionality of displaying current time.
+
+-----------------
+Getting Started:-
+-----------------
+
+Include jQuery, the plugin and its css on a page.
+
+	<script type="text/javascript" src="jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="jquery.countdownTimer.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery.countdownTimer.css" />
+
+Add a div and span element.
+
+	<div id="countdowntimer"><span id="future_date"><span></div>
+
+Then call the countdowntimer method with the required options on the span element id.
+
+	<script type="text/javascript">
+	  $(function(){
+	    $('#future_date').countdowntimer({
+	      dateAndTime : "2015/01/01 00:00:00",
+	      size : "lg"
+	    });
+	  });
+	</script>
+
+----------
+Overview:-
+----------
+
+Following are the different options provided for call to the "countdownTimer" method with their default values.
+
+hours   : 0,
+minutes : 0,
+seconds : 60,
+dateAndTime : new Date("0000/00/00 00:00:00"),
+currentTime : false,
+size : "sm",
+borderColor : "#F0068E",
+fontColor : "#FFFFFF",
+backgroundColor : "#000000"
+
+Following are the different cases for using "countdownTimer" method with their settings.
+
+1) Reverse countdown till a specific future date from today. (for eg:- 2015/01/01 00:00:00):-
+	
+	$(function(){
+		$("#future_date").countdowntimer({
+		        dateAndTime : "2015/01/01 00:00:00"‚
+			size : "lg"
+		});
+	});
+
+"dateAndTime" takes value in format "YYYY/MM/DD HH:MM:SS" where HH is a 24 - hours format.
+
+You may be wondering how to set the "size" option. Well, It's discussed at the end in "Display Settings".
+
+2) Reverse countdown to zero from time set to hours, minutes & seconds.
+
+	$(function(){
+		$("#hms_timer").countdowntimer({
+		        hours : 3‚
+			minutes : 10‚
+		        seconds : 10‚
+		        size : "lg"
+		});
+	});
+
+"hours" can take positive values starting from 0. "minutes", "seconds" takes values from 0 to 59.
+
+3) Reverse countdown to zero from time set to hours and minutes.
+
+	$(function(){
+		$("#hm_timer").countdowntimer({
+		        hours : 3‚
+			minutes : 10‚
+		        size : "lg"
+		});
+	});
+
+"hours" can take positive values starting from 0. "minutes" takes values from 0 to 59.
+
+4) Reverse countdown to zero from time set to minutes and seconds.
+
+	$(function(){
+		$("#ms_timer").countdowntimer({
+			minutes : 20‚
+		        seconds : 10‚
+		        size : "lg"
+		});
+	});
+
+"minutes" takes positive values starting from 0. "seconds" takes values from 0 to 59.
+
+5) Reverse countdown to zero from time set to hours and seconds.
+
+	$(function(){
+		$("#hs_timer").countdowntimer({
+			hours : 2‚
+		        seconds : 10‚
+		        size : "lg"
+		});
+	});
+
+"hours" takes positive values starting from 0. "seconds" takes values from 0 to 59.
+
+6) Reverse countdown to zero from time set to only hours.
+
+	$(function(){
+		$("#h_timer").countdowntimer({
+			hours : 2‚
+		        size : "lg"
+		});
+	});
+
+"hours" takes positive values starting from 0.
+
+7) Reverse countdown to zero from time set to only minutes.
+
+	$(function(){
+		$("#m_timer").countdowntimer({
+			minutes : 2‚
+		        size : "lg"
+		});
+	});
+
+"minutes" takes positive values starting from 0.
+
+8) Reverse countdown to zero from time set to only seconds.
+
+	$(function(){
+		$("#s_timer").countdowntimer({
+			seconds : 25‚
+		        size : "lg"
+		});
+	});
+
+"seconds" takes positive values starting from 0.
+
+9) Display current time.
+
+	$(function(){
+		$("#current_timer").countdowntimer({
+			currentTime : true‚
+		        size : "lg"
+		});
+	});
+
+"currentTime" takes either true or false.
+
+10) If no options provided.
+
+If no options are provided, by default timer of 60 seconds is displayed in small size.
+
+	$(function(){
+		$("#seconds_timer").countdowntimer({
+		});
+	});
+
+
+Display Settings:-
+------------------
+
+Sizes (use bootstrap sizes notation).
+
+	$(function(){
+		$("#xlarge").countdowntimer({
+		        dateAndTime : "2015/01/01 00:00:00"‚
+		        size : "lg"
+		});
+	});
+
+The "size" option can be set to below values.
+
+xl-Extra large
+
+lg-Large
+
+md-Medium
+
+sm-Small
+
+xs-Extra small
+
+What else, you can also set the border color, background and font color. See below.
+
+=> Setting border color, background and font color.
+
+	$(function(){
+		$("#current_timer").countdowntimer({
+			currentTime : true‚
+		        size : "lg"‚
+		        borderColor : "#5D09FA"‚
+		        backgroundColor : "#FAF209"‚
+		        fontColor : "#FA0909"
+		});
+	});
+
+By default "borderColor" is "#F0068E", "fontColor" is "#FFFFFF" and "backgroundColor" is "#000000".
+
+
+------
+Note:-
+------
+
+Please take care not to use timer options(hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time. Also, calling countdowntimer method with the same timer options(hours, minutes, seconds), dateAndTime or currentTime set differently on a single page will not work (for example:- If you call countdowntimer method twice on a single page and set dateAndTime option in it both times with different values, timer for only the first set value will be displayed in both timers).
+
+
+Refer the demos for more clarity.
+
+--------------
+Dependencies:-
+--------------
+
+jQuery greater than or equal to version 1.5.
+
+---------
+Support:-
+---------
+
+Please post bug reports and other contributions (enhancements, features) to the GitHub issue tracker.
+
+Copyright (c) 2014 Harshen Pandey
+Licensed under the MIT and GPLv3 license.
