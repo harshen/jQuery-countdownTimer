@@ -13,8 +13,8 @@
                     <body>
                         <div id="main">
                             <header>
-                                <h1><a href="http://plugins.jquery.com/countdownTimer/">jquery countdownTimer Plugin</a>&nbsp;Demo</h1>
-                                <p><a href="http://plugins.jquery.com/countdownTimer/">Download</a></p>
+                                <h1><a href="http://plugins.jquery.com/countdownTimer/" target="_blank" title="jquery countdownTimer Plugin">jquery countdownTimer Plugin</a>&nbsp;Demo</h1>
+                                <p><a href="http://github.com/harshen/jquery-countdownTimer/zipball/1.0.5" title="Download">Download</a></p>
                                 <p>Reverse count down jquery plugin as per your need.</p>
                             </header>
                             <h2 style="color :#0625BC; font-weight: bold;">Initial Setup</h2>
@@ -24,7 +24,7 @@
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;jquery.countdownTimer.css&quot; /&gt;</pre>
                             <p>add div and span element</p>
                             <pre style="width:535px;">&lt;div id=&quot;countdowntimer&quot;&gt;&lt;span id=&quot;future_date&quot;&gt;&lt;span&gt;&lt;/div&gt;</pre>
-                            <h3><u>Reverse countdown till a specific future date from today.</u><br/>(for eg:- 2015/01/01 00:00:00)</h3>
+                            <h3><u>Reverse countdown till a specific future date from today.</u><br/>(for eg:- 2016/01/01 00:00:00)</h3>
                             <table style="border:0px;">
                                 <tr>
                                     <td style="width:60px;text-align:center;">Days</td>
@@ -41,7 +41,7 @@
                             <script>
                                 $(function(){
                                     $('#future_date').countdowntimer({
-                                        dateAndTime : "2015/01/01 00:00:00",
+                                        dateAndTime : "2016/01/01 00:00:00",
                                         size : "lg"
                                     });
                                 });
@@ -50,12 +50,46 @@
                             <h4>Settings:-</h4>
                             <pre >$(function(){
 	$(&quot;#future_date&quot;).countdowntimer({
-                dateAndTime : &quot;2015/01/01 00:00:00&quot;&sbquo;
+                dateAndTime : &quot;2016/01/01 00:00:00&quot;&sbquo;
 		size : &quot;lg&quot;
 	})&#59;
 })&#59;</pre>
                             <p>dateAndTime takes value in format "YYYY/MM/DD HH:MM:SS" where HH is a 24 - hours format.</p>
-                            <p>You may be wondering how to set the "size" option. Well, It's discussed at the end in <a href="#display">Display Settings</a>.</p>
+                            <p>You may be wondering how to set the "size" option. Well, It's discussed at the end in <a href="#display" title="Display Settings">Display Settings</a>.</p>
+
+			    <h3><u>Reverse countdown between a given start date (which can be server date and time or any given date) and end date.</u></h3>
+                            <table style="border:0px;">
+                                <tr>
+                                    <td style="width:60px;text-align:center;">Days</td>
+                                    <td style="width:70px;text-align:center;">Hours</td>
+                                    <td style="width:60px;text-align:center;">Minutes</td>
+                                    <td style="width:70px;text-align:center;">Seconds</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><span id="given_date"></span></td>
+                                </tr>
+                            </table>
+
+
+                            <script>
+                                $(function(){
+                                    $('#given_date').countdowntimer({
+                                        startDate : "2014/10/01 00:00:00",
+                                        dateAndTime : "2015/01/01 00:00:00",
+                                        size : "lg"
+                                    });
+                                });
+                            </script>
+
+                            <h4>Settings:-</h4>
+                            <pre >$(function(){
+	$(&quot;#given_date&quot;).countdowntimer({
+                startDate : &quot;2014/10/01 00:00:00&quot;&sbquo; //set server date and time as &quot;&lt;?php echo date(&#39;Y/m/d H:i:s&#39;); ?&gt;&quot;.
+                dateAndTime : &quot;2015/01/01 00:00:00&quot;&sbquo; //end date
+		size : &quot;lg&quot;
+	})&#59;
+})&#59;</pre>
+                            <p>dateAndTime and startDate takes value in format "YYYY/MM/DD HH:MM:SS" where HH is a 24 - hours format.</p><p> Set server date and time as &quot;&lt;?php echo date(&#39;Y/m/d H:i:s&#39;); ?&gt;&quot;. Please note the format of date ("Y/m/d H:i:s").</p>
 
                             <h3><u>Reverse countdown to zero from time set to hours, minutes & seconds.</u></h3>
                             <table style="border:0px;">
@@ -294,6 +328,45 @@
 	$(&quot;#seconds_timer&quot;).countdowntimer({
 	})&#59;
 })&#59;</pre>
+			    <h2 style="color :#0625BC; font-weight: bold;">More Settings</h2>
+                            <h3>timeSeparator</h3>
+                            <p>The separator between the various parts of the countdown timer. By default it is ":".</p>
+                            <h3>tickInterval</h3>
+                            <p>The time interval in which you want countdown to tick. Set the interval in seconds. Note that you should only use intervals that are multiples of a minute (60) and for only seconds timer, in the multiples of the seconds set for timer. By default it is 1.</p>
+                            <h3>timeUp</h3>
+                            <p>The name of the callback function that is invoked when the countdown reaches zero. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.</p>
+			    <pre>$(function(){
+	$(&quot;#more_options&quot;).countdowntimer({
+                minutes : 20&sbquo;
+                size : &quot;lg&quot;&sbquo;
+                tickInterval : 5&sbquo;
+                timeSeparator : &quot;-&quot;&sbquo;
+                timeUp : timeisUp
+	})&#59;
+           
+        function timeisUp() {
+        	//Code to be executed when timer expires.
+        }
+})&#59;</pre>          
+			    <table style="border:0px;">
+                                <tr>
+                                    <td style="width:60px;text-align:center;">Minutes</td>
+                                    <td style="width:70px;text-align:center;">Seconds</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><span id="more_options"></span></td>
+                                </tr>
+                            </table>
+                            <script>
+                                $(function(){
+                                    $('#more_options').countdowntimer({
+                                        minutes : 20,
+                                        size : "lg",
+                                        tickInterval : 5,
+                                        timeSeparator : "-"
+                                    });
+                                });
+                            </script>
                             <h2 style="color :#0625BC; font-weight: bold;"><a id="display">Display Settings</a></h2>
                             <h3><u>Sizes (use bootstrap sizes notation).</u></h3>
                             <pre>$(function(){
@@ -380,11 +453,11 @@
                             <p>By default borderColor is "#F0068E", fontColor is "#FFFFFF", backgroundColor is "#000000".</p>
                             <br/><br/>
                             <h3><u>Note:-</u></h3>
-                            <p>Please take care not to use timer options(hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time. Also, calling countdowntimer method with the same timer options(hours, minutes, seconds), dateAndTime or currentTime set differently on a single page will not work (for example:- If you call countdowntimer method twice on a single page and set dateAndTime option in it both times with different values, timer for only the first set value will be displayed in both timers).</p>
+                            <p>Please take care not to use timer options(hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time.</p>
                             <br/><br/>
                             <footer>
-                                <p>Licensed under the <a href="http://opensource.org/licenses/MIT">MIT</a> and <a href="http://www.gnu.org/licenses/gpl.html">GPL v3</a> Project page <a href="https://github.com/harshen/jquery-countdownTimer">Link</a>
-                                    Author: <a href="https://github.com/harshen">Harshen Pandey</a> (harshenpandey@gmail.com)</p>
+                                <p>Licensed under the <a href="http://opensource.org/licenses/MIT" target="_blank" title="MIT">MIT</a> and <a href="http://www.gnu.org/licenses/gpl.html" target="_blank" title="GPL v3">GPL v3</a> Project page <a href="https://github.com/harshen/jquery-countdownTimer" target="_blank" title="Link">Link</a>
+                                    Author: <a href="http://harshen.github.io/" target="_blank" title="Harshen Pandey">Harshen Pandey</a> (harshenpandey@gmail.com)</p>
                             </footer>
                             <style>
                                 body{margin:0px; padding:0px;}
@@ -399,3 +472,4 @@
                         </div>
                     </body>
                     </html>
+

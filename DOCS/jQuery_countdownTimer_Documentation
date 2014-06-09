@@ -9,13 +9,13 @@ Reverse count down jQuery plugin.
 Introduction:-
 --------------
 
-CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need. It also displays current time.
+CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need. It also displays current local time.
 
 -------------
 Description:-
 -------------
 
-CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need. You can set a future date for reverse count down till that date or you can set time in hours, minutes and seconds for reverse countdown to zero. Also it provides the functionality of displaying current time.
+CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need. You can set a future date for reverse count down till that date from today or set start date and end date for reverse count down or you can set time in hours, minutes and seconds for reverse countdown to zero. Also it provides the functionality of displaying current local time.
 
 -----------------
 Getting Started:-
@@ -51,12 +51,16 @@ Following are the different options provided for call to the "countdownTimer" me
 hours   : 0,
 minutes : 0,
 seconds : 60,
+startDate : new Date(),
 dateAndTime : new Date("0000/00/00 00:00:00"),
 currentTime : false,
 size : "sm",
 borderColor : "#F0068E",
 fontColor : "#FFFFFF",
-backgroundColor : "#000000"
+backgroundColor : "#000000",
+timeSeparator : ":",
+tickInterval : 1,
+timeUp : null
 
 Following are the different cases for using "countdownTimer" method with their settings.
 
@@ -166,7 +170,27 @@ You may be wondering how to set the "size" option. Well, It's discussed at the e
 
 "currentTime" takes either true or false.
 
-10) If no options provided.
+10) Reverse countdown between a given start date (which can be server date and time or any given date) and end date.
+
+	$(function(){
+		$("#start_timer").countdowntimer({
+			startDate : "2014/10/10 12:00:00",
+                        dateAndTime : "2015/10/10 12:00:00",
+		        size : "lg"
+		});
+	});
+ 
+        For taking "startDate" as current server date and time.
+
+        $(function(){
+		$("#start_timer").countdowntimer({
+			startDate : "<?php echo date('Y/m/d H:i:s'); ?>", //Please note the format of date.
+                        dateAndTime : "2015/10/10 12:00:00", //End date
+		        size : "lg"
+		});
+	});
+
+11) If no options provided.
 
 If no options are provided, by default timer of 60 seconds is displayed in small size.
 
@@ -174,6 +198,22 @@ If no options are provided, by default timer of 60 seconds is displayed in small
 		$("#seconds_timer").countdowntimer({
 		});
 	});
+
+
+Some other configuration options:-
+----------------------------------
+
+timeSeparator => The separator between the various parts of the countdown timer. By default it is ":".
+
+eg - timeSeparator : ":"
+
+tickInterval =>  The time interval in which you want countdown to tick. Set the interval in seconds. Note that you should only use intervals that are multiples of a minute (60) and for only seconds timer, in the multiples of the seconds set for timer. By default it is 1.
+
+eg - tickInterval : 1
+
+timeUp => The name of the callback function that is invoked when the countdown reaches zero. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.
+
+eg - timeUp : timeisUp
 
 
 Display Settings:-
@@ -221,8 +261,7 @@ By default "borderColor" is "#F0068E", "fontColor" is "#FFFFFF" and "backgroundC
 Note:-
 ------
 
-Please take care not to use timer options(hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time. Also, calling countdowntimer method with the same timer options(hours, minutes, seconds), dateAndTime or currentTime set differently on a single page will not work (for example:- If you call countdowntimer method twice on a single page and set dateAndTime option in it both times with different values, timer for only the first set value will be displayed in both timers).
-
+Please take care not to use timer options(hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time.
 
 Refer the demos for more clarity.
 

@@ -3,7 +3,7 @@
 
 ## <a id="Introduction"></a>Introduction
 
-**countdownTimer** is a reverse count down jQuery plugin for displaying countdown as per your need. It also displays current time.
+**countdownTimer** is a reverse count down jQuery plugin for displaying countdown as per your need. It also displays current local time.
 
 ## [Help the project](https://pledgie.com/campaigns/23663)
 
