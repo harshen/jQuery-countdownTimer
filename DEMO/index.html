@@ -27,13 +27,7 @@
                             <h3><u>Reverse countdown till a specific future date from today.</u><br/>(for eg:- 2018/01/01 00:00:00)</h3>
                             <table style="border:0px;">
                                 <tr>
-                                    <td style="width:60px;text-align:center;">Days</td>
-                                    <td style="width:70px;text-align:center;">Hours</td>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="future_date"></span></td>
+                                    <td colspan="8"><span id="future_date"></span></td>
                                 </tr>
                             </table>
 
@@ -42,16 +36,25 @@
                                 $(function(){
                                     $('#future_date').countdowntimer({
                                         dateAndTime : "2018/01/01 00:00:00",
-                                        size : "lg"
+                                        size : "lg",
+                                        regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
+      					regexpReplaceWith: "$1<sup class='displayformat'>days</sup> / $2<sup class='displayformat'>hours</sup> / $3<sup class='displayformat'>minutes</sup> / $4<sup class='displayformat'>seconds</sup>"
                                     });
                                 });
                             </script>
-
+			    <style type="text/css">
+				.displayformat {
+					font-size:18px;
+					font-style: italic;
+				}
+			    </style>
                             <h4>Settings:-</h4>
                             <pre >$(function(){
 	$(&quot;#future_date&quot;).countdowntimer({
                 dateAndTime : &quot;2018/01/01 00:00:00&quot;&sbquo;
-		size : &quot;lg&quot;
+		size : &quot;lg&quot;&sbquo;
+		regexpMatchFormat: &quot;([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})&quot;&sbquo;
+      		regexpReplaceWith: &quot;$1&lt;sup&gt;days&lt;/sup&gt; / $2&lt;sup&gt;hours&lt;/sup&gt; / $3&lt;sup&gt;minutes&lt;/sup&gt; / $4&lt;sup&gt;seconds&lt;/sup&gt;&quot;
 	})&#59;
 })&#59;</pre>
                             <p>dateAndTime takes value in format "YYYY/MM/DD HH:MM:SS" where HH is a 24 - hours format.</p>
@@ -335,6 +338,13 @@
                             <p>The time interval in which you want countdown to tick. Set the interval in seconds. Note that you should only use intervals that are multiples of a minute (60) and for only seconds timer, in the multiples of the seconds set for timer. By default it is 1.</p>
                             <h3>timeUp</h3>
                             <p>The name of the callback function that is invoked when the countdown reaches zero. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.</p>
+                            <h3>expiryUrl</h3>
+                            <p>The Url to load after countdown reaches zero. Provide Url in quotes.</p>
+			    <h3>regexpMatchFormat</h3>
+                            <p>The Regular expression format to be matched and replaced for advanced formatting of timer display.</p>
+                            <h3>regexpReplaceWith</h3>
+                            <p>The replacement text to replace the regular expression.</p>
+
 			    <pre>$(function(){
 	$(&quot;#more_options&quot;).countdowntimer({
                 minutes : 20&sbquo;
@@ -453,7 +463,8 @@
                             <p>By default borderColor is "#F0068E", fontColor is "#FFFFFF", backgroundColor is "#000000".</p>
                             <br/><br/>
                             <h3><u>Note:-</u></h3>
-                            <p>Please take care not to use timer options(hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time.</p>
+                            <p>Please take care not to use timer options(<b>hours, minutes, seconds</b>), <b>dateAndTime</b> and <b>currentTime</b> simultaneously as all these options display different time.<br/>
+<b>regexpMatchFormat</b> and <b>regexpReplaceWith</b> will not work if used simultaneously with <b>timeSeparator</b> option as they have same purpose, i.e. formatting. For basic usage go for <b>timeSeparator</b>.</p>
                             <br/><br/>
                             <footer>
                                 <p>Licensed under the <a href="http://opensource.org/licenses/MIT" target="_blank" title="MIT">MIT</a> and <a href="http://www.gnu.org/licenses/gpl.html" target="_blank" title="GPL v3">GPL v3</a> Project page <a href="https://github.com/harshen/jquery-countdownTimer" target="_blank" title="Link">Link</a>

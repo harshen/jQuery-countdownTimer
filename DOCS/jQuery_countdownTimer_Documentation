@@ -36,7 +36,7 @@ Then call the countdowntimer method with the required options on the span elemen
 	<script type="text/javascript">
 	  $(function(){
 	    $('#future_date').countdowntimer({
-	      dateAndTime : "2015/01/01 00:00:00",
+	      dateAndTime : "2018/01/01 00:00:00",
 	      size : "lg"
 	    });
 	  });
@@ -60,15 +60,19 @@ fontColor : "#FFFFFF",
 backgroundColor : "#000000",
 timeSeparator : ":",
 tickInterval : 1,
-timeUp : null
+timeUp : null,
+expiryUrl : null,
+regexpMatchFormat: null,
+regexpReplaceWith: null
+
 
 Following are the different cases for using "countdownTimer" method with their settings.
 
-1) Reverse countdown till a specific future date from today. (for eg:- 2015/01/01 00:00:00):-
+1) Reverse countdown till a specific future date from today. (for eg:- 2018/01/01 00:00:00):-
 	
 	$(function(){
 		$("#future_date").countdowntimer({
-		        dateAndTime : "2015/01/01 00:00:00"‚
+		        dateAndTime : "2018/01/01 00:00:00"‚
 			size : "lg"
 		});
 	});
@@ -175,7 +179,7 @@ You may be wondering how to set the "size" option. Well, It's discussed at the e
 	$(function(){
 		$("#start_timer").countdowntimer({
 			startDate : "2014/10/10 12:00:00",
-                        dateAndTime : "2015/10/10 12:00:00",
+                        dateAndTime : "2018/10/10 12:00:00",
 		        size : "lg"
 		});
 	});
@@ -185,7 +189,7 @@ You may be wondering how to set the "size" option. Well, It's discussed at the e
         $(function(){
 		$("#start_timer").countdowntimer({
 			startDate : "<?php echo date('Y/m/d H:i:s'); ?>", //Please note the format of date.
-                        dateAndTime : "2015/10/10 12:00:00", //End date
+                        dateAndTime : "2018/10/10 12:00:00", //End date
 		        size : "lg"
 		});
 	});
@@ -207,13 +211,35 @@ timeSeparator => The separator between the various parts of the countdown timer.
 
 eg - timeSeparator : ":"
 
+
 tickInterval =>  The time interval in which you want countdown to tick. Set the interval in seconds. Note that you should only use intervals that are multiples of a minute (60) and for only seconds timer, in the multiples of the seconds set for timer. By default it is 1.
 
 eg - tickInterval : 1
 
+
 timeUp => The name of the callback function that is invoked when the countdown reaches zero. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.
 
 eg - timeUp : timeisUp
+
+
+expiryUrl => The Url to load after countdown reaches zero. Provide Url in quotes.
+
+eg - expiryUrl : "http://plugins.jquery.com"
+
+
+regexpMatchFormat => The Regular expression format to be matched and replaced for advanced formatting of timer display.
+
+
+regexpReplaceWith => The replacement text to replace the regular expression.
+
+
+regexpMatchFormat and regexpReplaceWith if used for advanced formatting, should be used together when calling the plugin function.
+
+eg - regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})"‚
+     regexpReplaceWith: "$1<sup>days</sup> / $2<sup>hours</sup> / $3<sup>minutes</sup> / $4<sup>seconds</sup>"
+
+Here, the regular expression in regexpMatchFormat is matched with the timer and replaced with the text in regexpReplaceWith in the timer. 
+
 
 
 Display Settings:-
@@ -223,7 +249,7 @@ Sizes (use bootstrap sizes notation).
 
 	$(function(){
 		$("#xlarge").countdowntimer({
-		        dateAndTime : "2015/01/01 00:00:00"‚
+		        dateAndTime : "2018/01/01 00:00:00"‚
 		        size : "lg"
 		});
 	});
@@ -262,6 +288,7 @@ Note:-
 ------
 
 Please take care not to use timer options(hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time.
+regexpMatchFormat and regexpReplaceWith will not work if used simultaneously with timeSeparator option as they have same purpose, i.e. formatting. For basic usage go for timeSeparator.
 
 Refer the demos for more clarity.
 

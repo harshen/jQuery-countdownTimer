@@ -28,7 +28,7 @@ Include jQuery, the plugin and its css file on a page. Add a div and span elemen
 <script type="text/javascript">
 	  $(function(){
 	    $('#future_date').countdowntimer({
-	      dateAndTime : "2015/01/01 00:00:00",
+	      dateAndTime : "2018/01/01 00:00:00",
 	      size : "lg"
 	    });
 	  });
