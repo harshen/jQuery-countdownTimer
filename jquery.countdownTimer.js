@@ -1,8 +1,8 @@
 /*
  
  * Author - Harshen Amarnath Pandey
- * Version - 1.0.6
- * Release - 09th February 2015
+ * Version - 1.0.7
+ * Release - 18th April 2015
  * Copyright (c) 2014 - 2018 Harshen Pandey
  */
 
@@ -78,6 +78,12 @@
                 window['hours_H' + $this.attr('id')] = opts.hours;
                 window['minutes_H' + $this.attr('id')] = opts.minutes;
                 window['seconds_H' + $this.attr('id')] = opts.seconds;
+                if (options.pauseButton != undefined) {
+                    pauseTimer($this, "H", opts, onlyHours);
+                }
+                if (options.stopButton != undefined) {
+                    stopTimer($this, "H", opts, onlyHours);
+                }
                 onlyHours($this, opts);
                 window['timer_H' + $this.attr('id')] = setInterval(function () {
                     onlyHours($this, opts)
@@ -90,6 +96,12 @@
                 window['hours_M' + $this.attr('id')] = opts.hours;
                 window['minutes_M' + $this.attr('id')] = opts.minutes;
                 window['seconds_M' + $this.attr('id')] = opts.seconds;
+                if (options.pauseButton != undefined) {
+                    pauseTimer($this, "M", opts, onlyMinutes);
+                }
+                if (options.stopButton != undefined) {
+                    stopTimer($this, "M", opts, onlyMinutes);
+                }
                 onlyMinutes($this, opts);
                 window['timer_M' + $this.attr('id')] = setInterval(function () {
                     onlyMinutes($this, opts)
@@ -102,6 +114,12 @@
                 window['hours_S' + $this.attr('id')] = opts.hours;
                 window['minutes_S' + $this.attr('id')] = opts.minutes;
                 window['seconds_S' + $this.attr('id')] = opts.seconds;
+                if (options.pauseButton != undefined) {
+                    pauseTimer($this, "S", opts, onlySeconds);
+                }
+                if (options.stopButton != undefined) {
+                    stopTimer($this, "S", opts, onlySeconds);
+                }
                 onlySeconds($this, opts);
                 window['timer_S' + $this.attr('id')] = setInterval(function () {
                     onlySeconds($this, opts)
@@ -114,6 +132,12 @@
                 window['hours_HM' + $this.attr('id')] = opts.hours;
                 window['minutes_HM' + $this.attr('id')] = opts.minutes;
                 window['seconds_HM' + $this.attr('id')] = opts.seconds;
+                if (options.pauseButton != undefined) {
+                    pauseTimer($this, "HM", opts, hoursMinutes);
+                }
+                if (options.stopButton != undefined) {
+                    stopTimer($this, "HM", opts, hoursMinutes);
+                }
                 hoursMinutes($this, opts);
                 window['timer_HM' + $this.attr('id')] = setInterval(function () {
                     hoursMinutes($this, opts)
@@ -126,6 +150,12 @@
                 window['hours_MS' + $this.attr('id')] = opts.hours;
                 window['minutes_MS' + $this.attr('id')] = opts.minutes;
                 window['seconds_MS' + $this.attr('id')] = opts.seconds;
+                if (options.pauseButton != undefined) {
+                    pauseTimer($this, "MS", opts, minutesSeconds);
+                }
+                if (options.stopButton != undefined) {
+                    stopTimer($this, "MS", opts, minutesSeconds);
+                }
                 minutesSeconds($this, opts);
                 window['timer_MS' + $this.attr('id')] = setInterval(function () {
                     minutesSeconds($this, opts)
@@ -138,6 +168,12 @@
                 window['hours_HS' + $this.attr('id')] = opts.hours;
                 window['minutes_HS' + $this.attr('id')] = opts.minutes;
                 window['seconds_HS' + $this.attr('id')] = opts.seconds;
+                if (options.pauseButton != undefined) {
+                    pauseTimer($this, "HS", opts, hoursSeconds);
+                }
+                if (options.stopButton != undefined) {
+                    stopTimer($this, "HS", opts, hoursSeconds);
+                }
                 hoursSeconds($this, opts);
                 window['timer_HS' + $this.attr('id')] = setInterval(function () {
                     hoursSeconds($this, opts)
@@ -150,6 +186,12 @@
                 window['hours_HMS' + $this.attr('id')] = opts.hours;
                 window['minutes_HMS' + $this.attr('id')] = opts.minutes;
                 window['seconds_HMS' + $this.attr('id')] = opts.seconds;
+                if (options.pauseButton != undefined) {
+                    pauseTimer($this, "HMS", opts, hoursMinutesSeconds);
+                }
+                if (options.stopButton != undefined) {
+                    stopTimer($this, "HMS", opts, hoursMinutesSeconds);
+                }
                 hoursMinutesSeconds($this, opts);
                 window['timer_HMS' + $this.attr('id')] = setInterval(function () {
                     hoursMinutesSeconds($this, opts)
@@ -659,6 +701,42 @@
         $this.html(processedContent);
     }
 
+    //Function to Pause/Resume Timer.
+    function pauseTimer($this, timerType, opts, func) {
+        $("#" + opts.pauseButton).click(function () {
+            if ($(this).val() != "resume") {
+                $("#" + opts.pauseButton).val("resume").text("Resume");
+                clearInterval(window['timer_' + timerType + $this.attr('id')]);
+            }
+            else if ($(this).val() == "resume") {
+                $("#" + opts.pauseButton).val("pause").text("Pause");
+                window['timer_' + timerType + $this.attr('id')] = setInterval(function () {
+                    func($this, opts)
+                }, opts.tickInterval * 1000);
+            }
+        });
+    }
+
+    //Function to Start/Stop Timer.
+    function stopTimer($this, timerType, opts, func) {
+        $("#" + opts.stopButton).click(function () {
+            if ($(this).val() != "start") {
+                $("#" + opts.stopButton).val("start").text("Start");
+                clearInterval(window['timer_' + timerType + $this.attr('id')]);
+                window['hours_' + timerType + $this.attr('id')] = opts.hours;
+                window['minutes_' + timerType + $this.attr('id')] = opts.minutes;
+                window['seconds_' + timerType + $this.attr('id')] = opts.seconds;
+                func($this, opts);
+            }
+            else if ($(this).val() == "start") {
+                $("#" + opts.stopButton).val("stop").text("Stop");
+                window['timer_' + timerType + $this.attr('id')] = setInterval(function () {
+                    func($this, opts)
+                }, opts.tickInterval * 1000);
+            }
+        });
+    }
+
     //Giving default value for options.
     $.fn.countdowntimer.defaults = {
         hours: 0,
@@ -676,7 +754,9 @@
         timeUp: null,
         expiryUrl: null,
         regexpMatchFormat: null,
-        regexpReplaceWith: null
+        regexpReplaceWith: null,
+        pauseButton: null,
+        stopButton: null
     };
 
 }(jQuery));

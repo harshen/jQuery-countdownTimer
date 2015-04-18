@@ -1,5 +1,5 @@
 {
-"name": "countdownTimer",
+"name": "countdowntimer",
 "title": "jQuery countdownTimer",
 "description": "Reverse count down jQuery plugin for displaying countdown as per need. It also displays current local time.",
 "keywords": [
@@ -14,7 +14,8 @@
 "minutes",
 "seconds",
 "date",
-"days"
+"days",
+"jquery-plugin"
 ],
 "version": "1.0.7",
 "author": {

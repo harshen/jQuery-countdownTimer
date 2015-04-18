@@ -13,8 +13,8 @@
                     <body>
                         <div id="main">
                             <header>
-                                <h1><a href="http://plugins.jquery.com/countdownTimer/" target="_blank" title="jquery countdownTimer Plugin">jquery countdownTimer Plugin</a>&nbsp;Demo</h1>
-                                <p><a href="http://github.com/harshen/jquery-countdownTimer/zipball/1.0.6" title="Download">Download</a></p>
+                                <h1><a href="https://www.npmjs.com/package/countdowntimer" target="_blank" title="jquery countdownTimer Plugin">jquery countdownTimer Plugin</a>&nbsp;Demo</h1>
+                                <p><a href="http://github.com/harshen/jquery-countdownTimer/zipball/1.0.7" title="Download">Download</a></p>
                                 <p>Reverse count down jquery plugin as per your need.</p>
                             </header>
                             <h2 style="color :#0625BC; font-weight: bold;">Initial Setup</h2>
@@ -102,7 +102,7 @@
                                     <td style="width:70px;text-align:center;">Seconds</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><span id="hms_timer"></span></td>
+                                    <td colspan="4"><span id="hms_timer"></span></td><td>&nbsp;&nbsp;<button id="pauseBtnhms">Pause</button></td><td>&nbsp;&nbsp;<button id="stopBtnhms">Stop</button></td>
                                 </tr>
                             </table>
                             <script>
@@ -111,7 +111,9 @@
                                         hours : 3,
                                         minutes :10,
                                         seconds : 10,
-                                        size : "lg"
+                                        size : "lg",
+					pauseButton : "pauseBtnhms",
+					stopButton : "stopBtnhms"
                                     });
                                 });
                             </script>
@@ -121,10 +123,12 @@
                 hours : 3&sbquo;
 		minutes : 10&sbquo;
                 seconds : 10&sbquo;
-                size : &quot;lg&quot;
+                size : &quot;lg&quot;&sbquo;
+		pauseButton : &quot;pauseBtnhms&quot;&sbquo;
+		stopButton : &quot;stopBtnhms&quot;
 	})&#59;
 })&#59;</pre>
-                            <p>Hours can take positive values starting from 0. Minutes, Seconds takes values from 0 to 59. </p>
+                            <p>Hours can take positive values starting from 0. Minutes, Seconds takes values from 0 to 59. More information about Pause and Stop buttons is provided in <a href="#more" title="More Settings">More Settings</a>.</p>
 
                             <h3><u>Reverse countdown to zero from time set to hours and minutes.</u></h3>
                             <table style="border:0px;">
@@ -331,7 +335,7 @@
 	$(&quot;#seconds_timer&quot;).countdowntimer({
 	})&#59;
 })&#59;</pre>
-			    <h2 style="color :#0625BC; font-weight: bold;">More Settings</h2>
+			    <h2 style="color :#0625BC; font-weight: bold;"><a id="more">More Settings</a></h2>
                             <h3>timeSeparator</h3>
                             <p>The separator between the various parts of the countdown timer. By default it is ":".</p>
                             <h3>tickInterval</h3>
@@ -344,6 +348,10 @@
                             <p>The Regular expression format to be matched and replaced for advanced formatting of timer display.</p>
                             <h3>regexpReplaceWith</h3>
                             <p>The replacement text to replace the regular expression.</p>
+                            <h3>pauseButton</h3>
+                            <p>The ID of the button which will Pause / Resume the timer. Provide ID in quotes.</p>
+                            <h3>stopButton</h3>
+                            <p>The ID of the button which will Stop / Start the timer. Provide ID in quotes.</p>
 
 			    <pre>$(function(){
 	$(&quot;#more_options&quot;).countdowntimer({
