@@ -1,0 +1,337 @@
+jquery-countdownTimer Plugin 
+============================
+
+(https://www.npmjs.com/package/countdowntimer)
+(https://github.com/harshen/jquery-countdownTimer)
+
+Reverse count down jQuery plugin.
+
+--------------
+Introduction:-
+--------------
+
+CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need. It also displays current local time.
+
+-------------
+Description:-
+-------------
+
+CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need with its different configuration options. You can set a future date for reverse count down till that date from today or set start date and end date for reverse count down or you can set time in hours, minutes and seconds for reverse countdown to zero. Also it provides the functionality of displaying current local time.
+
+-----------------
+Getting Started:-
+-----------------
+
+Include jQuery, the plugin and its css on a page.
+
+	<script type="text/javascript" src="jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="jquery.countdownTimer.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery.countdownTimer.css" />
+
+Add a div and span element.
+
+	<div id="countdowntimer"><span id="future_date"><span></div>
+
+Then call the countdowntimer method with the required options on the span element id.
+
+	<script type="text/javascript">
+	  $(function(){
+	    $('#future_date').countdowntimer({
+	      dateAndTime : "2020/01/01 00:00:00",
+	      size : "lg"
+	    });
+	  });
+	</script>
+
+----------
+Overview:-
+----------
+
+Following are the different options provided for call to the "countdownTimer" method with their default values.
+
+hours   : 0,
+minutes : 0,
+seconds : 60,
+startDate : new Date(),
+dateAndTime : new Date("0000/00/00 00:00:00"),
+currentTime : false,
+size : "sm",
+borderColor : "#F0068E",
+fontColor : "#FFFFFF",
+backgroundColor : "#000000",
+timeSeparator : ":",
+tickInterval : 1,
+timeUp : null,
+expiryUrl : null,
+regexpMatchFormat: null,
+regexpReplaceWith: null,
+pauseButton: null,
+stopButton: null,
+beforeExpiryTime: null,
+beforeExpiryTimeFunction: null
+
+
+Following are the different cases for using "countdownTimer" method with their settings.
+
+1) Reverse countdown till a specific future date from today. (for eg:- 2020/01/01 00:00:00):-
+	
+	$(function(){
+		$("#future_date").countdowntimer({
+		        dateAndTime : "2020/01/01 00:00:00"‚
+			size : "lg"
+		});
+	});
+
+"dateAndTime" takes value in format "YYYY/MM/DD HH:MM:SS" where HH is a 24 - hours format.
+
+You may be wondering how to set the "size" option. Well, It's discussed at the end in "Display Settings".
+
+2) Reverse countdown to zero from time set to hours, minutes & seconds.
+
+	$(function(){
+		$("#hms_timer").countdowntimer({
+		        hours : 3‚
+			minutes : 10‚
+		        seconds : 10‚
+		        size : "lg"
+		});
+	});
+
+"hours" can take positive values starting from 0. "minutes", "seconds" takes values from 0 to 59.
+
+3) Reverse countdown to zero from time set to hours and minutes.
+
+	$(function(){
+		$("#hm_timer").countdowntimer({
+		        hours : 3‚
+			minutes : 10‚
+		        size : "lg"
+		});
+	});
+
+"hours" can take positive values starting from 0. "minutes" takes values from 0 to 59.
+
+4) Reverse countdown to zero from time set to minutes and seconds.
+
+	$(function(){
+		$("#ms_timer").countdowntimer({
+			minutes : 20‚
+		        seconds : 10‚
+		        size : "lg"
+		});
+	});
+
+"minutes" takes positive values starting from 0. "seconds" takes values from 0 to 59.
+
+5) Reverse countdown to zero from time set to hours and seconds.
+
+	$(function(){
+		$("#hs_timer").countdowntimer({
+			hours : 2‚
+		        seconds : 10‚
+		        size : "lg"
+		});
+	});
+
+"hours" takes positive values starting from 0. "seconds" takes values from 0 to 59.
+
+6) Reverse countdown to zero from time set to only hours.
+
+	$(function(){
+		$("#h_timer").countdowntimer({
+			hours : 2‚
+		        size : "lg"
+		});
+	});
+
+"hours" takes positive values starting from 0.
+
+7) Reverse countdown to zero from time set to only minutes.
+
+	$(function(){
+		$("#m_timer").countdowntimer({
+			minutes : 2‚
+		        size : "lg"
+		});
+	});
+
+"minutes" takes positive values starting from 0.
+
+8) Reverse countdown to zero from time set to only seconds.
+
+	$(function(){
+		$("#s_timer").countdowntimer({
+			seconds : 25‚
+		        size : "lg"
+		});
+	});
+
+"seconds" takes positive values starting from 0.
+
+9) Display current time.
+
+	$(function(){
+		$("#current_timer").countdowntimer({
+			currentTime : true‚
+		        size : "lg"
+		});
+	});
+
+"currentTime" takes either true or false.
+
+10) Reverse countdown between a given start date (which can be server date and time or any given date) and end date.
+
+	$(function(){
+		$("#start_timer").countdowntimer({
+			startDate : "2017/10/10 12:00:00",
+                        dateAndTime : "2020/10/10 12:00:00",
+		        size : "lg"
+		});
+	});
+ 
+        For taking "startDate" as current server date and time.
+
+        $(function(){
+		$("#start_timer").countdowntimer({
+			startDate : "<?php echo date('Y/m/d H:i:s'); ?>", //Please note the format of date.
+                        dateAndTime : "2020/10/10 12:00:00", //End date
+		        size : "lg"
+		});
+	});
+
+11) If no options provided.
+
+If no options are provided, by default timer of 60 seconds is displayed in small size.
+
+	$(function(){
+		$("#seconds_timer").countdowntimer({
+		});
+	});
+
+
+Some other configuration options:-
+----------------------------------
+
+1) timeSeparator => The separator between the various parts of the countdown timer. By default it is ":".
+
+eg - timeSeparator : ":"
+
+
+2) tickInterval =>  The time interval in which you want countdown to tick. Set the interval in seconds. Note that you should only use intervals that are multiples of a minute (60) and for only seconds timer, in the multiples of the seconds set for timer. By default it is 1.
+
+eg - tickInterval : 1
+
+
+3) timeUp => The name of the callback function that is invoked when the countdown reaches zero. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.
+
+eg - timeUp : timeisUp
+
+
+4) expiryUrl => The Url to load after countdown reaches zero. Provide Url in quotes.
+
+eg - expiryUrl : "http://plugins.jquery.com"
+
+
+5) regexpMatchFormat => The Regular expression format to be matched and replaced for advanced formatting of timer display.
+
+
+6) regexpReplaceWith => The replacement text to replace the regular expression.
+
+
+regexpMatchFormat and regexpReplaceWith if used for advanced formatting, should be used together when calling the plugin function.
+
+eg - regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})"‚
+     regexpReplaceWith: "$1<sup>days</sup> / $2<sup>hours</sup> / $3<sup>minutes</sup> / $4<sup>seconds</sup>"
+
+Here, the regular expression in regexpMatchFormat is matched with the timer and replaced with the text in regexpReplaceWith in the timer. 
+
+
+7) pauseButton => The ID of the button which will Pause / Resume the timer. Provide ID in quotes.
+
+eg - pauseButton : "pauseBtn"
+
+The text of button toggles between "Pause" and "Resume".
+
+
+8) stopButton => The ID of the button which will Stop / Start the timer. It stops and resets the timer to the timer options (hours, minutes, seconds) set while calling the plugin function. Provide ID in quotes.
+
+eg - stopButton : "stopBtn"
+
+The text of button toggles between "Stop" and "Start".
+
+9) beforeExpiryTime => The time before expiry when beforeExpiryTimeFunction needs to be called. Format:- "DD:HH:MM:SS".
+
+eg - beforeExpiryTime : "01:02:03:05"
+
+10) beforeExpiryTimeFunction => The name of the callback function that is invoked before the countdown reaches zero at a time set in beforeExpiryTime. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.
+
+eg - beforeExpiryTimeFunction :  beforeExpiryFunc
+
+
+Display Settings:-
+------------------
+
+Sizes (use bootstrap sizes notation).
+
+	$(function(){
+		$("#xlarge").countdowntimer({
+		        dateAndTime : "2020/01/01 00:00:00"‚
+		        size : "lg"
+		});
+	});
+
+The "size" option can be set to below values.
+
+xl-Extra large
+
+lg-Large
+
+md-Medium
+
+sm-Small
+
+xs-Extra small
+
+What else, you can also set the border color, background and font color. See below.
+
+=> Setting border color, background and font color.
+
+	$(function(){
+		$("#current_timer").countdowntimer({
+			currentTime : true‚
+		        size : "lg"‚
+		        borderColor : "#5D09FA"‚
+		        backgroundColor : "#FAF209"‚
+		        fontColor : "#FA0909"
+		});
+	});
+
+By default "borderColor" is "#F0068E", "fontColor" is "#FFFFFF" and "backgroundColor" is "#000000".
+
+
+------
+Note:-
+------
+
+Please take care not to use timer options(hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time.
+
+regexpMatchFormat and regexpReplaceWith will not work if used simultaneously with timeSeparator option as they have same purpose, i.e. formatting. For basic usage go for timeSeparator.
+
+pauseButton and stopButton can be used for user defined timer(i.e. setting hours, minutes and seconds options). It cannot be used for startDate, dateAndTime and currentTime options as these times depend on either a future date or current local time.
+
+Refer the demos for more clarity.
+
+--------------
+Dependencies:-
+--------------
+
+jQuery greater than or equal to version 1.5.
+
+---------
+Support:-
+---------
+
+Please post bug reports and other contributions (enhancements, features) to the GitHub issue tracker.
+
+Copyright (c) 2017 Harshen Pandey
+Licensed under the MIT and GPLv3 license.

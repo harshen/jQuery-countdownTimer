@@ -1,0 +1,52 @@
+/*
+ * Author - Harshen Pandey
+ * Version - 1.0.9
+ * Release - 18th March 2017
+ * Copyright (c) 2017 - 2020 Harshen Pandey
+*/
+
+/* jquery.countdownTimer.css*/
+
+.style {
+   width: 100%;
+   font-family: sans-serif;
+   font-weight: bold;
+   border-style: solid;
+}
+
+.colorDefinition {
+    background: #000000;
+    color : #FFFFFF;
+    border-color: #F0068E;
+}
+
+.size_xl {
+   font-size:50px;
+   border-width: 8px;
+   border-radius: 6px;
+}
+
+.size_lg {
+   font-size:40px;
+   border-width: 7px;
+   border-radius: 5px;
+}
+
+.size_md {
+   font-size:30px;
+   border-width: 5px;
+   border-radius: 4px;
+}
+
+.size_sm {
+   font-size:20px;
+   border-width: 3px;
+   border-radius: 3px;
+}
+
+.size_xs {
+   font-size:15px;
+   border-width: 2px;
+   border-radius: 2px;
+}
+
