@@ -14,7 +14,7 @@
                         <div id="main">
                             <header>
                                 <h1><a href="https://www.npmjs.com/package/countdowntimer" target="_blank" title="jquery countdownTimer Plugin">jquery countdownTimer Plugin</a>&nbsp;Demo</h1>
-                                <p><a href="http://github.com/harshen/jquery-countdownTimer/zipball/1.0.8" title="Download">Download</a></p>
+                                <p><a href="http://github.com/harshen/jquery-countdownTimer/zipball/1.0.9" title="Download">Download</a></p>
                                 <p>Reverse count down jquery plugin as per your need.</p>
                             </header>
                             <h2 style="color :#0625BC; font-weight: bold;">Initial Setup</h2>
@@ -24,7 +24,7 @@
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;jquery.countdownTimer.css&quot; /&gt;</pre>
                             <p>add div and span element</p>
                             <pre style="width:535px;">&lt;div id=&quot;countdowntimer&quot;&gt;&lt;span id=&quot;future_date&quot;&gt;&lt;span&gt;&lt;/div&gt;</pre>
-                            <h3><u>Reverse countdown till a specific future date from today.</u><br/>(for eg:- 2018/01/01 00:00:00)</h3>
+                            <h3><u>Reverse countdown till a specific future date from today.</u><br/>(for eg:- 2020/01/01 00:00:00)</h3>
                             <table style="border:0px;">
                                 <tr>
                                     <td colspan="8"><span id="future_date"></span></td>
@@ -35,7 +35,7 @@
                             <script>
                                 $(function(){
                                     $('#future_date').countdowntimer({
-                                        dateAndTime : "2018/01/01 00:00:00",
+                                        dateAndTime : "2020/01/01 00:00:00",
                                         size : "lg",
                                         regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
       					regexpReplaceWith: "$1<sup class='displayformat'>days</sup> / $2<sup class='displayformat'>hours</sup> / $3<sup class='displayformat'>minutes</sup> / $4<sup class='displayformat'>seconds</sup>"
@@ -51,7 +51,7 @@
                             <h4>Settings:-</h4>
                             <pre >$(function(){
 	$(&quot;#future_date&quot;).countdowntimer({
-                dateAndTime : &quot;2018/01/01 00:00:00&quot;&sbquo;
+                dateAndTime : &quot;2020/01/01 00:00:00&quot;&sbquo;
 		size : &quot;lg&quot;&sbquo;
 		regexpMatchFormat: &quot;([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})&quot;&sbquo;
       		regexpReplaceWith: &quot;$1&lt;sup&gt;days&lt;/sup&gt; / $2&lt;sup&gt;hours&lt;/sup&gt; / $3&lt;sup&gt;minutes&lt;/sup&gt; / $4&lt;sup&gt;seconds&lt;/sup&gt;&quot;
@@ -77,8 +77,8 @@
                             <script>
                                 $(function(){
                                     $('#given_date').countdowntimer({
-                                        startDate : "2014/10/01 00:00:00",
-                                        dateAndTime : "2018/01/01 00:00:00",
+                                        startDate : "2016/10/01 00:00:00",
+                                        dateAndTime : "2020/01/01 00:00:00",
                                         size : "lg"
                                     });
                                 });
@@ -87,8 +87,8 @@
                             <h4>Settings:-</h4>
                             <pre >$(function(){
 	$(&quot;#given_date&quot;).countdowntimer({
-                startDate : &quot;2014/10/01 00:00:00&quot;&sbquo; //set server date and time as &quot;&lt;?php echo date(&#39;Y/m/d H:i:s&#39;); ?&gt;&quot;.
-                dateAndTime : &quot;2018/01/01 00:00:00&quot;&sbquo; //end date
+                startDate : &quot;2016/10/01 00:00:00&quot;&sbquo; //set server date and time as &quot;&lt;?php echo date(&#39;Y/m/d H:i:s&#39;); ?&gt;&quot;.
+                dateAndTime : &quot;2020/01/01 00:00:00&quot;&sbquo; //end date
 		size : &quot;lg&quot;
 	})&#59;
 })&#59;</pre>
@@ -352,6 +352,10 @@
                             <p>The ID of the button which will Pause / Resume the timer. Provide ID in quotes.</p>
                             <h3>stopButton</h3>
                             <p>The ID of the button which will Stop / Start the timer. Provide ID in quotes.</p>
+                            <h3>beforeExpiryTime</h3>
+                            <p>The time before expiry when <b>beforeExpiryTimeFunction</b> needs to be called. Format:- &quot;DD:HH:MM:SS&quot;.</p>
+                            <h3>beforeExpiryTimeFunction</h3>
+                            <p>The name of the callback function that is invoked before the countdown reaches zero at a time set in <b>beforeExpiryTime</b>. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.</p>
 
 			    <pre>$(function(){
 	$(&quot;#more_options&quot;).countdowntimer({
@@ -359,12 +363,20 @@
                 size : &quot;lg&quot;&sbquo;
                 tickInterval : 5&sbquo;
                 timeSeparator : &quot;-&quot;&sbquo;
-                timeUp : timeisUp
+                timeUp : timeIsUp&sbquo;
+                expiryUrl : &quot;https://www.npmjs.com/package/countdowntimer&quot;&sbquo;
+                beforeExpiryTime : &quot;00:00:01:05&quot;&sbquo;
+		beforeExpiryTimeFunction :  beforeExpiryFunc
 	})&#59;
            
-        function timeisUp() {
+        function timeIsUp() {
         	//Code to be executed when timer expires.
         }
+        
+        function beforeExpiryFunc() {
+		//Code to be executed before the timer expires (before 01:05).
+	}
+
 })&#59;</pre>          
 			    <table style="border:0px;">
                                 <tr>
@@ -389,7 +401,7 @@
                             <h3><u>Sizes (use bootstrap sizes notation).</u></h3>
                             <pre>$(function(){
 	$(&quot;#xlarge&quot;).countdowntimer({
-                dateAndTime : &quot;2018/01/01 00:00:00&quot;&sbquo;
+                dateAndTime : &quot;2020/01/01 00:00:00&quot;&sbquo;
                 size : &quot;lg&quot;
 	})&#59;
 })&#59;</pre>
@@ -409,27 +421,27 @@
                             <script>
                                 $(function(){
                                     $('#xlarge').countdowntimer({
-                                        dateAndTime : "2018/01/01 00:00:00",
+                                        dateAndTime : "2020/01/01 00:00:00",
                                         size : "xl"
                                     });
 
                                     $('#large').countdowntimer({
-                                        dateAndTime : "2018/01/01 00:00:00",
+                                        dateAndTime : "2020/01/01 00:00:00",
                                         size : "lg"
                                     });
 
                                     $('#medium').countdowntimer({
-                                        dateAndTime : "2018/01/01 00:00:00",
+                                        dateAndTime : "2020/01/01 00:00:00",
                                         size : "md"
                                     });
 
                                     $('#small').countdowntimer({
-                                        dateAndTime : "2018/01/01 00:00:00",
+                                        dateAndTime : "2020/01/01 00:00:00",
                                         size : "sm"
                                     });
 
                                     $('#xsmall').countdowntimer({
-                                        dateAndTime : "2018/01/01 00:00:00",
+                                        dateAndTime : "2020/01/01 00:00:00",
                                         size : "xs"
                                     });
                                 });
@@ -491,4 +503,3 @@
                         </div>
                     </body>
                     </html>
-

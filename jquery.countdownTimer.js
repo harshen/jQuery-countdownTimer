@@ -1,10 +1,10 @@
-/*
- 
- * Author - Harshen Amarnath Pandey
- * Version - 1.0.8
- * Release - 18th April 2015
- * Copyright (c) 2014 - 2018 Harshen Pandey
+/* 
+ * Author - Harshen Pandey
+ * Version - 1.0.9
+ * Release - 18th March 2017
+ * Copyright (c) 2017 - 2020 Harshen Pandey
  */
+/* jquery.countdownTimer.js*/
 
 (function ($) {
 
@@ -34,6 +34,22 @@
             window['regexpMatchFormat_' + $this.attr('id')] = options.regexpMatchFormat;
             window['regexpReplaceWith_' + $this.attr('id')] = options.regexpReplaceWith;
         }
+
+        if(options.beforeExpiryTime != undefined) {
+			var expTime = opts.beforeExpiryTime.split(":");
+			if(expTime[0] != "00") {
+				window['beforeExpiryDays_' + $this.attr('id')] = expTime[0];
+			}
+			if(expTime[1] != "00") { 
+				window['beforeExpiryHours_' + $this.attr('id')] = expTime[1];
+			}
+			if(expTime[2] != "00") {
+				window['beforeExpiryMinutes_' + $this.attr('id')] = expTime[2];
+			}
+			if(expTime[3] != "00") { 
+				window['beforeExpirySeconds_' + $this.attr('id')] = expTime[3];
+			}
+		}
 
         if (options.borderColor != undefined || options.fontColor != undefined || options.backgroundColor != undefined) {
             var customStyle = {
@@ -253,6 +269,9 @@
                 window['hours_H' + id] = "0" + window['hours_H' + id];
             }
             html($this, window['hours_H' + id] + opts.timeSeparator + "00" + opts.timeSeparator + "00");
+			if(typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_H' + id]) {
+				beforeExpiryTime($this, opts);
+			}
             window['seconds_H' + id] = 60 - opts.tickInterval;
             window['minutes_H' + id] = 59;
             if (window['hours_H' + id] != 0) {
@@ -275,6 +294,9 @@
                 window['seconds_H' + id] = "0" + window['seconds_H' + id];
             }
             html($this, window['hours_H' + id] + opts.timeSeparator + window['minutes_H' + id] + opts.timeSeparator + window['seconds_H' + id]);
+			if(((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_H' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_H' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_H' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_H' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_H' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_H' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_H' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_H' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_H' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_H' + id]) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_H' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_H' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_H' + id]) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_H' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_H' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_H' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_H' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_H' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_H' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_H' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_H' + id]))) {
+				beforeExpiryTime($this, opts);
+			}
             window['seconds_H' + id] -= opts.tickInterval;
             if (window['minutes_H' + id] != 0 && window['seconds_H' + id] < 0) {
                 window['minutes_H' + id]--;
@@ -306,6 +328,9 @@
                 window['minutes_M' + id] = "0" + window['minutes_M' + id];
             }
             html($this, window['minutes_M' + id] + opts.timeSeparator + "00");
+			if(typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_M' + id]) {
+				beforeExpiryTime($this, opts);
+			}
             window['seconds_M' + id] = 60 - opts.tickInterval;
             if (window['minutes_M' + id] != 0) {
                 window['minutes_M' + id]--;
@@ -324,6 +349,9 @@
                 window['seconds_M' + id] = "0" + window['seconds_M' + id];
             }
             html($this, window['minutes_M' + id] + opts.timeSeparator + window['seconds_M' + id]);
+			if(((typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_M' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_M' + id])) || ((typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_M' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_M' + id] == "00")) || ((typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_M' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_M' + id]))) {
+				beforeExpiryTime($this, opts);
+			}
             window['seconds_M' + id] -= opts.tickInterval;
             if (window['minutes_M' + id] != 0 && window['seconds_M' + id] < 0) {
                 window['minutes_M' + id]--;
@@ -348,6 +376,9 @@
             window['seconds_S' + id] = "0" + window['seconds_S' + id];
         }
         html($this, window['seconds_S' + id] + " " + "sec");
+		if(typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_S' + id]) {
+			beforeExpiryTime($this, opts);
+		}
         window['seconds_S' + id] -= opts.tickInterval;
         if (window['seconds_S' + id] < 0)
         {
@@ -371,6 +402,9 @@
                 window['minutes_HM' + id] = "0" + window['minutes_HM' + id];
             }
             html($this, window['hours_HM' + id] + opts.timeSeparator + window['minutes_HM' + id] + opts.timeSeparator + "00");
+			if((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HM' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HM' + id])) {
+				beforeExpiryTime($this, opts);
+			}
             if (window['hours_HM' + id] != 0 && window['minutes_HM' + id] == 0) {
                 window['hours_HM' + id]--;
                 window['minutes_HM' + id] = 59;
@@ -401,6 +435,9 @@
                 window['seconds_HM' + id] = "0" + window['seconds_HM' + id];
             }
             html($this, window['hours_HM' + id] + opts.timeSeparator + window['minutes_HM' + id] + opts.timeSeparator + window['seconds_HM' + id]);
+			if(((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HM' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HM' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HM' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HM' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HM' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HM' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HM' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HM' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HM' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HM' + id]) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HM' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HM' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HM' + id]) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HM' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HM' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HM' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HM' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HM' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HM' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HM' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HM' + id]))) {
+				beforeExpiryTime($this, opts);
+			}
             window['seconds_HM' + id] -= opts.tickInterval;
             if (window['minutes_HM' + id] != 0 && window['seconds_HM' + id] < 0) {
                 window['minutes_HM' + id]--;
@@ -435,6 +472,9 @@
                 window['seconds_MS' + id] = "0" + window['seconds_MS' + id];
             }
             html($this, window['minutes_MS' + id] + opts.timeSeparator + window['seconds_MS' + id]);
+			if((typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_MS' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_MS' + id])) {
+				beforeExpiryTime($this, opts);
+			}
             if (window['minutes_MS' + id] != 0 && window['seconds_MS' + id] == 0) {
                 window['minutes_MS' + id]--;
                 window['seconds_MS' + id] = 60 - opts.tickInterval;
@@ -455,6 +495,9 @@
                 window['seconds_MS' + id] = "0" + window['seconds_MS' + id];
             }
             html($this, window['minutes_MS' + id] + opts.timeSeparator + window['seconds_MS' + id]);
+			if(((typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_MS' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_MS' + id])) || ((typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_MS' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_MS' + id] == "00")) || ((typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_MS' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_MS' + id]))) {
+				beforeExpiryTime($this, opts);
+			}
             window['seconds_MS' + id] -= opts.tickInterval;
             if (window['minutes_MS' + id] != 0 && window['seconds_MS' + id] < 0) {
                 window['minutes_MS' + id]--;
@@ -483,6 +526,9 @@
                 window['seconds_HS' + id] = "0" + window['seconds_HS' + id];
             }
             html($this, window['hours_HS' + id] + opts.timeSeparator + "00" + opts.timeSeparator + window['seconds_HS' + id]);
+			if((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HS' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HS' + id])) {
+				beforeExpiryTime($this, opts);
+			}
             if (window['hours_HS' + id] == 0 && window['seconds_HS' + id] == 0) {
                 delete window['hours_HS' + id];
                 delete window['minutes_HS' + id];
@@ -507,6 +553,9 @@
                 window['seconds_HS' + id] = "0" + window['seconds_HS' + id];
             }
             html($this, window['hours_HS' + id] + opts.timeSeparator + window['minutes_HS' + id] + opts.timeSeparator + window['seconds_HS' + id]);
+			if(((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HS' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HS' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HS' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HS' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HS' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HS' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HS' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HS' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HS' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HS' + id]) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HS' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HS' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HS' + id]) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HS' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HS' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HS' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HS' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HS' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HS' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HS' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HS' + id]))) {
+				beforeExpiryTime($this, opts);
+			}
             window['seconds_HS' + id] -= opts.tickInterval;
             if (window['minutes_HS' + id] != 0 && window['seconds_HS' + id] < 0) {
                 window['minutes_HS' + id]--;
@@ -544,6 +593,9 @@
                 window['seconds_HMS' + id] = "0" + window['seconds_HMS' + id];
             }
             html($this, window['hours_HMS' + id] + opts.timeSeparator + window['minutes_HMS' + id] + opts.timeSeparator + window['seconds_HMS' + id]);
+			if((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HMS' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HMS' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HMS' + id])) {
+				beforeExpiryTime($this, opts);
+			}
             if (window['hours_HMS' + id] == 0 && window['minutes_HMS' + id] == 0 && window['seconds_HMS' + id] == 0) {
                 delete window['hours_HMS' + id];
                 delete window['minutes_HMS' + id];
@@ -574,6 +626,9 @@
                 window['seconds_HMS' + id] = "0" + window['seconds_HMS' + id];
             }
             html($this, window['hours_HMS' + id] + opts.timeSeparator + window['minutes_HMS' + id] + opts.timeSeparator + window['seconds_HMS' + id]);
+			if(((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HMS' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HMS' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HMS' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HMS' + id]) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HMS' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HMS' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HMS' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HMS' + id]) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HMS' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HMS' + id]) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HMS' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HMS' + id])) || ((typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == window['hours_HMS' + id]) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HMS' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HMS' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HMS' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == window['minutes_HMS' + id]) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && window['seconds_HMS' + id] == "00")) || ((typeof window['beforeExpiryHours_' + id] === 'undefined' && window['hours_HMS' + id] == "00") && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && window['minutes_HMS' + id] == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == window['seconds_HMS' + id]))) {
+				beforeExpiryTime($this, opts);
+			}
             window['seconds_HMS' + id] -= opts.tickInterval;
             if (window['minutes_HMS' + id] != 0 && window['seconds_HMS' + id] < 0) {
                 window['minutes_HMS' + id]--;
@@ -621,6 +676,9 @@
                 seconds = "0" + seconds;
             }
             html($this, days + opts.timeSeparator + hours + opts.timeSeparator + minutes + opts.timeSeparator + seconds);
+			if(((typeof window['beforeExpiryDays_' + id] !== 'undefined' && window['beforeExpiryDays_' + id] == days) && (typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == hours) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == minutes) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == seconds)) || ((typeof window['beforeExpiryDays_' + id] !== 'undefined' && window['beforeExpiryDays_' + id] == days) && (typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == hours) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == minutes) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && seconds == "00")) || ((typeof window['beforeExpiryDays_' + id] !== 'undefined' && window['beforeExpiryDays_' + id] == days) && (typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == hours) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && minutes == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == seconds)) || ((typeof window['beforeExpiryDays_' + id] !== 'undefined' && window['beforeExpiryDays_' + id] == days) && (typeof window['beforeExpiryHours_' + id] === 'undefined' && hours == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == minutes) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == seconds)) || ((typeof window['beforeExpiryDays_' + id] === 'undefined' && days == "00") && (typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == hours) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == minutes) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == seconds)) || ((typeof window['beforeExpiryDays_' + id] !== 'undefined' && window['beforeExpiryDays_' + id] == days) && (typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == hours) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && minutes == "00") && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && seconds == "00")) || ((typeof window['beforeExpiryDays_' + id] !== 'undefined' && window['beforeExpiryDays_' + id] == days) && (typeof window['beforeExpiryHours_' + id] === 'undefined' && hours == "00") && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && minutes ==  "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == seconds)) || ((typeof window['beforeExpiryDays_' + id] === 'undefined' && days == "00") && (typeof window['beforeExpiryHours_' + id] === 'undefined' && hours == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == minutes) && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == seconds)) || ((typeof window['beforeExpiryDays_' + id] === 'undefined' && days == "00") && (typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == hours) && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == minutes) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && seconds == "00")) || ((typeof window['beforeExpiryDays_' + id] === 'undefined' && days == "00") && (typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == hours) && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && minutes == "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == seconds)) || ((typeof window['beforeExpiryDays_' + id] !== 'undefined' && window['beforeExpiryDays_' + id] == days) && (typeof window['beforeExpiryHours_' + id] === 'undefined' && hours == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == minutes) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && seconds == "00")) || ((typeof window['beforeExpiryDays_' + id] !== 'undefined' && window['beforeExpiryDays_' + id] == days) && (typeof window['beforeExpiryHours_' + id] === 'undefined' && hours == "00") && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && minutes ==  "00") && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && seconds == "00")) || ((typeof window['beforeExpiryDays_' + id] === 'undefined' && days == "00") && (typeof window['beforeExpiryHours_' + id] !== 'undefined' && window['beforeExpiryHours_' + id] == hours) &&  (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && minutes ==  "00") && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && seconds == "00")) || ((typeof window['beforeExpiryDays_' + id] === 'undefined' && days == "00") && (typeof window['beforeExpiryHours_' + id] === 'undefined' && hours == "00") && (typeof window['beforeExpiryMinutes_' + id] !== 'undefined' && window['beforeExpiryMinutes_' + id] == minutes) && (typeof window['beforeExpirySeconds_' + id] === 'undefined' && seconds == "00")) || ((typeof window['beforeExpiryDays_' + id] === 'undefined' && days == "00") && (typeof window['beforeExpiryHours_' + id] === 'undefined' && hours == "00") && (typeof window['beforeExpiryMinutes_' + id] === 'undefined' && minutes ==  "00") && (typeof window['beforeExpirySeconds_' + id] !== 'undefined' && window['beforeExpirySeconds_' + id] == seconds))) {
+				beforeExpiryTime($this, opts);
+			}
             (type == "withnoStart") ? (window['startTime' + id].setSeconds(window['startTime' + id].getSeconds() + opts.tickInterval)) : (window['startDate' + id].setSeconds(window['startDate' + id].getSeconds() + opts.tickInterval));
         } else {
             html($this, "00" + opts.timeSeparator + "00" + opts.timeSeparator + "00" + opts.timeSeparator + "00");
@@ -687,6 +745,15 @@
         if (opts.expiryUrl != null) {
             window.location = opts.expiryUrl;
         }
+    }
+
+    //Function for calling the given function name before expiry time.
+    function beforeExpiryTime($this, opts) {
+	if(opts.beforeExpiryTimeFunction != null) {
+	    if ($.isFunction(opts.beforeExpiryTimeFunction) == true) {
+		opts.beforeExpiryTimeFunction.apply($this, []);
+	    }
+	}
     }
 
     //Function for displaying the timer.
@@ -756,7 +823,9 @@
         regexpMatchFormat: null,
         regexpReplaceWith: null,
         pauseButton: null,
-        stopButton: null
+        stopButton: null,
+	beforeExpiryTime: null,
+	beforeExpiryTimeFunction: null
     };
 
 }(jQuery));

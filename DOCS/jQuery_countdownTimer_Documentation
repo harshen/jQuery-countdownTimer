@@ -2,7 +2,7 @@ jquery-countdownTimer Plugin
 ============================
 
 (https://www.npmjs.com/package/countdowntimer)
-(http://plugins.jquery.com/countdownTimer/)
+(https://github.com/harshen/jquery-countdownTimer)
 
 Reverse count down jQuery plugin.
 
@@ -16,7 +16,7 @@ CountdownTimer is a reverse count down jQuery plugin for displaying countdown as
 Description:-
 -------------
 
-CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need. You can set a future date for reverse count down till that date from today or set start date and end date for reverse count down or you can set time in hours, minutes and seconds for reverse countdown to zero. Also it provides the functionality of displaying current local time.
+CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per your need with its different configuration options. You can set a future date for reverse count down till that date from today or set start date and end date for reverse count down or you can set time in hours, minutes and seconds for reverse countdown to zero. Also it provides the functionality of displaying current local time.
 
 -----------------
 Getting Started:-
@@ -37,7 +37,7 @@ Then call the countdowntimer method with the required options on the span elemen
 	<script type="text/javascript">
 	  $(function(){
 	    $('#future_date').countdowntimer({
-	      dateAndTime : "2018/01/01 00:00:00",
+	      dateAndTime : "2020/01/01 00:00:00",
 	      size : "lg"
 	    });
 	  });
@@ -66,16 +66,18 @@ expiryUrl : null,
 regexpMatchFormat: null,
 regexpReplaceWith: null,
 pauseButton: null,
-stopButton: null
+stopButton: null,
+beforeExpiryTime: null,
+beforeExpiryTimeFunction: null
 
 
 Following are the different cases for using "countdownTimer" method with their settings.
 
-1) Reverse countdown till a specific future date from today. (for eg:- 2018/01/01 00:00:00):-
+1) Reverse countdown till a specific future date from today. (for eg:- 2020/01/01 00:00:00):-
 	
 	$(function(){
 		$("#future_date").countdowntimer({
-		        dateAndTime : "2018/01/01 00:00:00"‚
+		        dateAndTime : "2020/01/01 00:00:00"‚
 			size : "lg"
 		});
 	});
@@ -181,8 +183,8 @@ You may be wondering how to set the "size" option. Well, It's discussed at the e
 
 	$(function(){
 		$("#start_timer").countdowntimer({
-			startDate : "2014/10/10 12:00:00",
-                        dateAndTime : "2018/10/10 12:00:00",
+			startDate : "2017/10/10 12:00:00",
+                        dateAndTime : "2020/10/10 12:00:00",
 		        size : "lg"
 		});
 	});
@@ -192,7 +194,7 @@ You may be wondering how to set the "size" option. Well, It's discussed at the e
         $(function(){
 		$("#start_timer").countdowntimer({
 			startDate : "<?php echo date('Y/m/d H:i:s'); ?>", //Please note the format of date.
-                        dateAndTime : "2018/10/10 12:00:00", //End date
+                        dateAndTime : "2020/10/10 12:00:00", //End date
 		        size : "lg"
 		});
 	});
@@ -257,6 +259,14 @@ eg - stopButton : "stopBtn"
 
 The text of button toggles between "Stop" and "Start".
 
+9) beforeExpiryTime => The time before expiry when beforeExpiryTimeFunction needs to be called. Format:- "DD:HH:MM:SS".
+
+eg - beforeExpiryTime : "01:02:03:05"
+
+10) beforeExpiryTimeFunction => The name of the callback function that is invoked before the countdown reaches zero at a time set in beforeExpiryTime. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.
+
+eg - beforeExpiryTimeFunction :  beforeExpiryFunc
+
 
 Display Settings:-
 ------------------
@@ -265,7 +275,7 @@ Sizes (use bootstrap sizes notation).
 
 	$(function(){
 		$("#xlarge").countdowntimer({
-		        dateAndTime : "2018/01/01 00:00:00"‚
+		        dateAndTime : "2020/01/01 00:00:00"‚
 		        size : "lg"
 		});
 	});
@@ -323,5 +333,5 @@ Support:-
 
 Please post bug reports and other contributions (enhancements, features) to the GitHub issue tracker.
 
-Copyright (c) 2014 Harshen Pandey
+Copyright (c) 2017 Harshen Pandey
 Licensed under the MIT and GPLv3 license.

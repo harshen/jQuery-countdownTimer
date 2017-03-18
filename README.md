@@ -1,9 +1,9 @@
-[jquery-countdownTimer Plugin](http://plugins.jquery.com/countdownTimer/)- Reverse count down jQuery plugin.
+[jquery-countdownTimer Plugin](https://www.npmjs.com/package/countdowntimer)- Reverse count down jQuery plugin.
 ===============================
 
 ## <a id="Introduction"></a>Introduction
 
-**countdownTimer** is a reverse count down jQuery plugin for displaying countdown as per your need. It also displays current local time.
+**countdownTimer** is a reverse count down jQuery plugin for displaying countdown as per your need with its different configuration options. It also displays current local time.
 
 ## [Help the project](https://pledgie.com/campaigns/23663)
 
@@ -28,7 +28,7 @@ Include jQuery, the plugin and its css file on a page. Add a div and span elemen
 <script type="text/javascript">
 	  $(function(){
 	    $('#future_date').countdowntimer({
-	      dateAndTime : "2018/01/01 00:00:00",
+	      dateAndTime : "2020/01/01 00:00:00",
 	      size : "lg"
 	    });
 	  });
@@ -48,5 +48,5 @@ Please post bug reports and other contributions (enhancements, features) to the 
 
 ## <a id="License"></a>License
 
-Copyright (c) 2014 Harshen Pandey
+Copyright (c) 2017 Harshen Pandey
 Licensed under the MIT and GPLv3 license.
