@@ -23,7 +23,7 @@ Include jQuery, the plugin and its css file on a page. Add a div and span elemen
 <script type="text/javascript" src="jquery.countdownTimer.js"></script>
 <link rel="stylesheet" type="text/css" href="jquery.countdownTimer.css" />
 
-<div id="countdowntimer"><span id="future_date"><span></div>
+<div id="countdowntimer"><span id="future_date"></span></div>
 
 <script type="text/javascript">
 	  $(function(){
