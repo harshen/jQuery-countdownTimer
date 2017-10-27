@@ -16,4 +16,4 @@ Install [Jekyll](http://jekyllrb.com/) on your machine, proceed to your terminal
 bundle exec jekyll serve
 ```
 
-Open your browser and access [http://localhost:4000](http://localhost:4000) and access the website locally.
+Open your browser, go to [http://localhost:4000](http://localhost:4000) and access the website locally.
