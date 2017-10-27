@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      <title>jQuery CountDownTimer</title>
+      <meta name="description" content="Countdown plugin for jQuery.">
+      <meta name="keywords" content="jQuery, plugin, count down">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript" src="js/jQuery.countdownTimer.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/jQuery.countdownTimer.css" />
+   </head>
+   <body>
+      <div id="main">
+         <header>
+            <h1 class="text-center"><a href="https://www.npmjs.com/package/countdowntimer" target="_blank" title="jQuery CountdownTimer Plugin">jQuery CountdownTimer Plugin</a></h1>
+            <p><a href="https://github.com/harshen/jQuery-countdownTimer/releases/download/2.0.0/jQuery.countdownTimer-2.0.0.zip" title="Download">Download</a></p>
+            <p>Reverse count down jquery plugin as per your need.</p>
+         </header>
+         <h3><u>Reverse countdown till 1st Jan 2020.</u></h3>
+         <table style="border:0px;">
+            <tr>
+               <td colspan="8"><span id="future_date"></span></td>
+            </tr>
+         </table>
+         <h3><u>Reverse countdown to zero from time set to 03 hours, 10 minutes & 10 seconds.</u></h3>
+         <table style="border:0px;">
+            <tr>
+               <td style="text-align:center;">Hours</td>
+               <td style="width:60px;text-align:center;">Minutes</td>
+               <td style="width:70px;text-align:center;">Seconds</td>
+            </tr>
+            <tr>
+               <td colspan="4"><span id="hms_timer"></span></td>
+            </tr>
+         </table>
+         <script type="text/javascript">
+            $(function(){
+                $('#hms_timer').countdowntimer({
+                    hours : 3,
+                    minutes :10,
+                    seconds : 10,
+                    size : "lg"
+                });
+                
+                $('#future_date').countdowntimer({
+                    dateAndTime : "2020/01/01 00:00:00",
+                    labelsFormat : true,
+                    displayFormat : "YODHMS"
+                });
+            });
+         </script>
+         <br/><br/>
+         <p class="text-justify">This page highlights the minimum basics of <a href="https://github.com/harshen/jQuery-countdownTimer" title="jQuery CountdownTimer">jQuery CountdownTimer</a>. Here, only elemental usage of the plugin is shown. For more advanced usage examples, visit the <a href="https://harshen.github.io/jQuery-countdownTimer/" title="Website">Website</a>.</p>
+         <footer>
+            <p style="margin-top: 5%;">Licensed under the <a href="https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE.md" target="_blank" title="MIT">MIT</a> and <a href="https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE-GPL.md" target="_blank" title="GPL-3.0">GPL-3.0</a> Project page <a href="https://github.com/harshen/jQuery-countdownTimer" target="_blank" title="Link">Link</a>
+               Author: <a href="https://remote.com/harshen" target="_blank" title="Harshen Pandey">Harshen Pandey</a> (<a href="mailto:harshenpandey@gmail.com" title="Harshen Pandey" target="_top">harshenpandey@gmail.com</a>)
+            </p>
+         </footer>
+         <style>
+            body{margin:0px; padding:0px;}
+            #main{margin:0px auto; padding:0px; width:50%;position:relative;}
+            pre{
+            background:#F8F8D2;padding:10px;
+            border: 2px solid #673E3E;
+            border-radius: 3px;
+            color: #222222;
+            }
+            .text-justify {
+            text-align : justify;
+            }
+            .text-center {
+            text-align : center;
+            }
+            p {
+            line-height: 1.5;
+            }
+         </style>
+      </div>
+   </body>
+</html>

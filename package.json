@@ -1,44 +1,54 @@
 {
-"name": "countdowntimer",
-"title": "jQuery countdownTimer",
-"description": "Reverse count down jQuery plugin for displaying countdown as per need. It also displays current local time.",
-"keywords": [
-"jquery",
-"countdown",
-"timer",
-"countdownTimer",
-"reverse",
-"clock",
-"time",
-"hours",
-"minutes",
-"seconds",
-"date",
-"days",
-"jquery-plugin"
-],
-"version": "1.0.9",
-"author": {
-"name": "Harshen Pandey",
-"email" : "harshenpandey@gmail.com",
-"url" : "http://harshen.github.io/"
-},
-"bugs": "https://github.com/harshen/jquery-countdownTimer/issues",
-"homepage": "https://github.com/harshen/jquery-countdownTimer",
-"demo" : "http://harshen.github.io/jquery-countdownTimer/",
-"docs" : "https://raw.github.com/harshen/jquery-countdownTimer/master/DOCS/jQuery_countdownTimer_Documentation",
-"licenses": [
-{
-"type": "MIT",
-"url": "http://opensource.org/licenses/MIT"
-},
-{
-"type": "GPLv3",
-"url": "http://www.gnu.org/licenses/gpl.html"
+   "name": "countdowntimer",
+   "description": "Reverse count down jQuery plugin for displaying countdown as per need. Also displays current time.",
+   "keywords": [
+      "jquery",
+      "countdown",
+      "timer",
+      "countdownTimer",
+      "reverse",
+      "clock",
+      "time",
+      "hours",
+      "minutes",
+      "seconds",
+      "date",
+      "days",
+      "years",
+      "months",
+      "localisation",
+      "jquery-plugin"
+   ],
+   "version": "2.0.0",
+   "author": {
+      "name": "Harshen Pandey",
+      "email": "harshenpandey@gmail.com",
+      "url": "https://remote.com/harshen/"
+   },
+   "bugs": "https://github.com/harshen/jQuery-countdownTimer/issues",
+   "homepage": "https://github.com/harshen/jQuery-countdownTimer",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/harshen/jQuery-countdownTimer.git"
+   },
+   "license": "(MIT OR GPL-3.0)",
+   "dependencies": {
+      "jquery": "^3.2.1"
+   },
+   "devDependencies": {
+      "grunt": "^0.4.5",
+      "grunt-contrib-clean": "~1.1.0",
+      "grunt-contrib-compress": "~1.4.3",
+      "grunt-contrib-copy": "~1.0.0",
+      "grunt-contrib-jshint": "^1.1.0",
+      "grunt-contrib-nodeunit": "~1.0.0",
+      "grunt-contrib-qunit": "~2.0.0",
+      "grunt-contrib-uglify": "^3.1.0",
+      "grunt-contrib-watch": "~1.0.0",
+      "grunt-eslint": "^20.1.0",
+      "grunt-jsdoc": "~2.2.0",
+      "grunt-jsonlint": "~1.1.0",
+      "grunt-text-replace": "~0.4.0",
+      "grunt-version": "~1.2.1"
+   }
 }
-],
-"dependencies": {
-"jquery": "~3.2.1"
-}
-}
-

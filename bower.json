@@ -1,0 +1,51 @@
+{
+   "name":"countdowntimer",
+   "version":"2.0.0",
+   "description":"Reverse count down jQuery plugin for displaying countdown as per need. Also displays current time.",
+   "keywords":[
+      "jquery",
+      "countdown",
+      "timer",
+      "countdownTimer",
+      "reverse",
+      "clock",
+      "time",
+      "hours",
+      "minutes",
+      "seconds",
+      "date",
+      "days",
+      "years",
+      "months",
+      "localisation",
+      "jquery-plugin"
+   ],
+   "homepage":"https://github.com/harshen/jQuery-countdownTimer",
+   "authors":[
+      "Harshen Pandey <harshenpandey@gmail.com> (https://remote.com/harshen/)"
+   ],
+   "license":[
+      "MIT",
+      "GPL-3.0"
+   ],
+   "main":[
+      "src/css/jQuery.countdownTimer.css",
+      "src/js/jQuery.countdownTimer.js"
+   ],
+   "ignore":[
+      "**/.*",
+      "src",
+      "test",
+      "package.json",
+      "Gruntfile.js",
+      "node_modules",
+      "bower_components"
+   ],
+   "dependencies":{
+      "jquery":"^3.2.1"
+   },
+   "devDependencies":{
+      "qunit":"~2.4.0",
+      "sinon":"http://sinonjs.org/releases/sinon-4.0.1.js"
+   }
+}

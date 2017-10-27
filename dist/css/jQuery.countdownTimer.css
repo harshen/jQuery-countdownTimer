@@ -1,0 +1,116 @@
+/*! CountdownTimer for jQuery @version2.0.0 (https://harshen.github.io/jQuery-countdownTimer/).
+ *  Written by Harshen Pandey (https://remote.com/harshen) January 2014.
+ *  @license MIT (https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE.md)
+ *  and GPLv3 (https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE-GPL.md).
+ *  @release - 27/10/2017
+ *  Copyright (c) 2017 - 2020 Harshen Pandey
+ *  Please attribute the author if you use it.
+ */
+/* jQuery.countdownTimer.css*/
+
+.style {
+   width: 100%;
+   font-family: sans-serif;
+   font-weight: bold;
+   border-style: solid;
+}
+
+.colorDefinition {
+    background: #000000;
+    color : #FFFFFF;
+    border-color: #F0068E;
+}
+
+.size_xl {
+   font-size:50px;
+   border-width: 8px;
+   border-radius: 6px;
+}
+
+.size_lg {
+   font-size:40px;
+   border-width: 7px;
+   border-radius: 5px;
+}
+
+.size_md {
+   font-size:30px;
+   border-width: 5px;
+   border-radius: 4px;
+}
+
+.size_sm {
+   font-size:20px;
+   border-width: 3px;
+   border-radius: 3px;
+}
+
+.size_xs {
+   font-size:15px;
+   border-width: 2px;
+   border-radius: 2px;
+}
+
+.lang-rtl {
+	direction: rtl;
+}
+
+.displaySection {
+	display: block;
+	float: left;
+	font-size: 75%;
+	text-align: center;
+	border-right: 5px solid #F0068E;
+}
+
+.timerDisplay > span.displaySection:last-child {
+	border-right: none;
+}
+
+.label6 .displaySection {
+    width: 15%;
+}
+
+.label5 .displaySection {
+    width: 18%;
+}
+
+.label4 .displaySection {
+    width: 23.5%;
+}
+
+.label3 .displaySection {
+    width: 31.8%;
+}
+
+.label2 .displaySection {
+    width: 48.6%;
+}
+
+.label1 .displaySection {
+    width: 98%;
+}
+
+.numberDisplay {
+	font-size: 200%;
+}
+
+.periodDisplay {
+	display: block;
+}
+
+.timerDisplay {
+	clear: both;
+	width: 100%;
+	padding: 8px 4px;
+	text-align: center;
+	float: left;
+}
+
+.labelformat {
+	float: left;
+	width: 350px;
+	font-size: 15px;
+    border-width: 7px;
+    border-radius: 5px;
+}

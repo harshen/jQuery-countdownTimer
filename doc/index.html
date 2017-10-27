@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1><a href="https://www.npmjs.com/package/countdowntimer/">jQuery CountdownTimer Plugin</a></h1><p><a href="https://travis-ci.org/harshen/jQuery-countdownTimer/" title="Travis CI"><img src="https://travis-ci.org/harshen/jQuery-countdownTimer.svg" alt="Build Status"></a>
+<a href="https://david-dm.org/harshen/jQuery-countdownTimer/" title="Dependency Status"><img src="https://david-dm.org/harshen/jQuery-countdownTimer/status.svg" alt="Dependencies Status"></a>
+<a href="https://david-dm.org/harshen/jQuery-countdownTimer/#info=devDependencies" title="Dev Dependency Status"><img src="https://david-dm.org/harshen/jQuery-countdownTimer/dev-status.svg" alt="Dev Dependency Status"></a></p>
+<h2><a id="Introduction"></a>Introduction</h2><p><strong>CountdownTimer</strong> is a reverse count down jQuery plugin for displaying countdown as per need with its different configuration options. It is a perfect match for any coupon, auction site or product launch page. It also displays current time and comes with timezone and many regional languages support.</p>
+<ul>
+<li><a href="https://harshen.github.io/jQuery-countdownTimer/">Website</a></li>
+</ul>
+<h2><a href="https://www.paypal.me/harshenpandey/">Help the project</a></h2><p>This project is looking for help! <a href="https://www.paypal.me/harshenpandey/">You can donate through Paypal</a>
+and help spread the word. If you've used the plugin, or plan to use, consider a donation - any amount will help.</p>
+<h2 id="table-of-contents">Table of contents</h2><ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#maindoc">Main</a></li>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#usage-examples">Usage examples</a></li>
+<li><a href="#browser-support">Browser support</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#support">Support</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="features">Features</h2><ul>
+<li>Supports jQuery v1.5+</li>
+<li>Supports 27 <a href="#options">options</a></li>
+<li>Supports 5 <a href="#methods">methods</a></li>
+<li>Supports regional languages</li>
+<li>Supports different timezones</li>
+<li>Supports different sizes</li>
+<li>Supports Pause / Resume Timer</li>
+<li>Supports Start / Stop Timer</li>
+<li>Supports time expire callback</li>
+<li>Supports custom styling</li>
+<li>Cross-browser support</li>
+</ul>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="maindoc">Main</h2><pre class="prettyprint source lang-text"><code>dist/
+├── js/
+|   ├── jQuery.countdownTimer.js
+|   ├── jQuery.countdownTimer.min.js   (compressed)
+|   ├── localisation/
+|       └── jQuery.countdownTimer-[region-code].js (regional language support js files)
+├── css/
+    └── jQuery.countdownTimer.css</code></pre><p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="getting-started">Getting Started</h2><h3>Install</h3><pre class="prettyprint source lang-shell"><code>npm install countdowntimer</code></pre><h3>Include files</h3><p>Include jQuery, the plugin and its css file on a page.</p>
+<pre class="prettyprint source lang-html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&quot;>&lt;/script>
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jQuery.countdownTimer.js&quot;>&lt;/script>
+&lt;!-- Good alternative is to include minified file jQuery.countdownTimer.min.js -->
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/jQuery.countdownTimer.css&quot; />
+&lt;!-- For regional language support, include below file -->
+&lt;!--&lt;script type=&quot;text/javascript&quot; src=&quot;js/localisation/jQuery.countdownTimer-[region-code].js&quot;>&lt;/script>--></code></pre><h3>Usage</h3><p>Add a div and span element.</p>
+<pre class="prettyprint source lang-html"><code>&lt;div id=&quot;countdowntimer&quot;>&lt;span id=&quot;future_date&quot;>&lt;/span>&lt;/div></code></pre><p>Initialize the <code>countdowntimer</code> method with the required options on the span element id.</p>
+<pre class="prettyprint source lang-js"><code>&lt;script type=&quot;text/javascript&quot;>
+      $(function(){
+        $(&quot;#future_date&quot;).countdowntimer({
+          dateAndTime : &quot;2020/01/01 00:00:00&quot;,
+          size : &quot;lg&quot;
+        });
+      });
+&lt;/script></code></pre><h4>FAQ</h4><p>How to set countdown time in hours, minutes seconds?</p>
+<blockquote>
+<p>Just specify <code>hours</code> <code>minutes</code> <code>seconds</code> options with the required time while calling the plugin method.</p>
+</blockquote>
+<p>How to remove seconds from the timer?</p>
+<blockquote>
+<p>Use <code>displayFormat</code> option as for example displayFormat: &quot;YODHM&quot;.</p>
+</blockquote>
+<p>How to reset the timer?</p>
+<blockquote>
+<p>Use the plugins stop function or <code>stopButton</code> option and provide button id to it.</p>
+</blockquote>
+<p>How to modify countdowntimer display with our own styling?</p>
+<blockquote>
+<p>Use <code>size, borderColor, fontColor, backgroundColor</code> options. Moreover <code>regexpMatchFormat and regexpReplaceWith</code> provide custom display formatting as per need.</p>
+</blockquote>
+<h4>Notes</h4><ul>
+<li><p>Don't use timer options (hours, minutes, seconds), dateAndTime and currentTime simultaneously as all these options display different time.</p>
+</li>
+<li><p><code>regexpMatchFormat and regexpReplaceWith</code> will not function if used simultaneously with <code>timeSeparator, labelsFormat and/or displayFormat</code> options as regex options provide custom display formatting.</p>
+<blockquote>
+<p>If you are using regexp options, use them with size.</p>
+</blockquote>
+</li>
+<li><p><code>pauseButton, stopButton</code> options and plugins pause and stop methods can be used for user defined timer (i.e. setting hours, minutes and/or seconds options). It cannot be used for <code>startDate, dateAndTime and currentTime</code> options as these times depend on either a future date or current date-time.</p>
+</li>
+<li><p><code>labelsFormat</code> has entirely different display. If used with <code>size and/or timeSeparator</code>, it gains priority over the latter two and they won't function.</p>
+</li>
+</ul>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="options">Options</h2><h3>Overview</h3><p>Following are the different options provided for initialising the <code>countdowntimer</code> method with their default values.</p>
+<pre class="prettyprint source lang-js"><code>hours                    : 0                                // Set hours.
+minutes                  : 0                                // Set minutes.
+seconds                  : 60                               // Set seconds.
+startDate                : new Date()                       // Set a start date.
+dateAndTime              : new Date(&quot;1970/01/01 00:00:00&quot;)  // Set end date for start date.
+currentTime              : false                            // Show current time.
+size                     : &quot;sm&quot;                             // Set timer size.
+borderColor              : &quot;#F0068E&quot;                        // Set timer border Color.
+fontColor                : &quot;#FFFFFF&quot;                        // Set timer font Color.
+backgroundColor          : &quot;#000000&quot;                        // Set timer background Color.
+timeSeparator            : &quot;:&quot;                              // Set time separator.
+tickInterval             : 1                                // Set timer interval.
+timeUp                   : null                             // Provide time expire callback function.
+expiryUrl                : null                             // Provide url to load on expire.
+regexpMatchFormat        : null                             // Provide regular expression format to match.
+regexpReplaceWith        : null                             // Provide regular expression string to replace regexpMatchFormat.
+pauseButton              : null                             // Provide pause button id.
+stopButton               : null                             // Provide stop button id.
+beforeExpiryTime         : null                             // Set a time before expire.
+beforeExpiryTimeFunction : null                             // Provide callback function at before expire time.
+padZeroes                : true                             // Pad zeroes to digits if &lt; 10.
+displayFormat            : &quot;HMS&quot;                            // Timer display format.
+labelsFormat             : false                            // Timer display with labels.
+timeZone                 : null                             // Set target date timezone.
+
+**Regional Options**
+
+digits                   : ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+labels                   : ['Years', 'Months', 'Days', 'Hours', 'Minutes', 'Seconds']
+isRTL                    : false</code></pre><h3>Details</h3><h4>hours</h4><ul>
+<li>Type: <code>Number</code></li>
+<li>Default: <code>0</code></li>
+<li>Provide the hours as a number to countdown to zero. It can take positive values including 0. Can be used with minutes and/or seconds. If used with them, minutes and seconds take values from 0 to 59.</li>
+</ul>
+<h4>minutes</h4><ul>
+<li>Type: <code>Number</code></li>
+<li>Default: <code>0</code></li>
+<li>Provide the minutes as a number to countdown to zero. It can take positive values including 0. Can be used with hours and/or seconds. If used with them, minutes and seconds take values from 0 to 59.</li>
+</ul>
+<h4>seconds</h4><ul>
+<li>Type: <code>Number</code></li>
+<li>Default: <code>60</code></li>
+<li>Provide the seconds as a number to countdown to zero. It can take positive values including 0. Can be used with hours and/or minutes. If used with them, minutes and seconds take values from 0 to 59.</li>
+</ul>
+<h4>startDate</h4><ul>
+<li>Type: <code>Javascript Date</code></li>
+<li>Default: <code>new Date()</code></li>
+<li>Provide the startDate as Javascript Date to countdown till dateAndTime. startDate takes value in format &quot;YYYY/MM/DD HH:MM:SS&quot; where HH is a 24 - hours format. If startDate occurs in future, timer will show zeroes till startDate is equal to current date time. It can also be set to server date and time as given below.</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>&lt;?php echo date('Y/m/d H:i:s'); ?></code></pre><h4>dateAndTime</h4><ul>
+<li>Type: <code>Javascript Date</code></li>
+<li>Default: <code>new Date(&quot;1970/01/01 00:00:00&quot;)</code></li>
+<li>Provide the dateAndTime as Javascript Date for startDate to countdown. dateAndTime takes value in format &quot;YYYY/MM/DD HH:MM:SS&quot; where HH is a 24 - hours format. If no startDate is provided, dateAndTime will take the startDate as current date time to countdown. It can also be set to server date and time as given below.</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>&lt;?php echo date('Y/m/d H:i:s'); ?></code></pre><h4>currentTime</h4><ul>
+<li>Type: <code>Boolean</code></li>
+<li>Default: <code>false</code></li>
+<li>Show current local time or target region time (by using <code>timeZone</code>). Shows time in a 24 - hour format. Default display is of format HH:MM:SS.</li>
+</ul>
+<h4>size</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>sm</code></li>
+<li><p>The size option defines the countdowntimer size and can be set to below values (use bootstrap sizes notation).</p>
+<ul>
+<li><p>xl - Extra large</p>
+</li>
+<li><p>lg - Large</p>
+</li>
+<li><p>md - Medium</p>
+</li>
+<li><p>sm - Small</p>
+</li>
+<li><p>xs - Extra small</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>borderColor</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>#F0068E</code></li>
+<li>Set the border color of the countdowntimer with this option.</li>
+</ul>
+<h4>fontColor</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>#FFFFFF</code></li>
+<li>Set the font color of the countdowntimer with this option.</li>
+</ul>
+<h4>backgroundColor</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>#000000</code></li>
+<li>Set the background color of the countdowntimer with this option.</li>
+</ul>
+<h4>timeSeparator</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>:</code></li>
+<li>Set the separator between digits of different time periods of the countdowntimer with this option.</li>
+</ul>
+<h4>tickInterval</h4><ul>
+<li>Type: <code>Number</code></li>
+<li>Default: <code>1</code></li>
+<li>Set the interval in seconds and timer will update the display as per the interval. Note that the time period resolution is limited to the minimum value displayed in your format. So, if you are not showing seconds, you should only use intervals that are multiples of a minute (eg - tickInterval : 60).</li>
+</ul>
+<h4>timeUp</h4><ul>
+<li>Type: <code>Function</code></li>
+<li>Default: <code>null</code></li>
+<li>The name of the callback function that is invoked when the countdown reaches zero. Within the function <code>this</code> refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.</li>
+</ul>
+<h4>expiryUrl</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>null</code></li>
+<li>The Url to load when the countdowntimer reaches zero. Provide it in quotes.</li>
+</ul>
+<h4>regexpMatchFormat</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>null</code></li>
+<li>Set the Regular expression format to be matched and replaced with regexpReplaceWith option for advanced formatting of timer display.</li>
+</ul>
+<h4>regexpReplaceWith</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>null</code></li>
+<li>The replacement text to replace the regular expression match given in regexpMatchFormat option.</li>
+</ul>
+<h4>pauseButton</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>null</code></li>
+<li>Set the ID of the button which will Pause / Resume the timer. Provide ID in quotes. The text of button toggles between &quot;Pause&quot; and &quot;Resume&quot;.</li>
+</ul>
+<h4>stopButton</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>null</code></li>
+<li>Set the ID of the button which will Stop / Start the timer. It stops and resets the timer to the timer options (hours, minutes, seconds) set while calling the plugin function. Provide ID in quotes. The text of button toggles between &quot;Stop&quot; and &quot;Start&quot;.</li>
+</ul>
+<h4>beforeExpiryTime</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>null</code></li>
+<li>The time before expiry when beforeExpiryTimeFunction needs to be called. Format:- &quot;DD:HH:MM:SS&quot; (eg - beforeExpiryTime : &quot;01:02:03:05&quot;).</li>
+</ul>
+<h4>beforeExpiryTimeFunction</h4><ul>
+<li>Type: <code>Function</code></li>
+<li>Default: <code>null</code></li>
+<li>The name of the callback function that is invoked before the countdown reaches zero at a time set in beforeExpiryTime option. Within the function <code>this</code> refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.</li>
+</ul>
+<h4>padZeroes</h4><ul>
+<li>Type: <code>Boolean</code></li>
+<li>Default: <code>true</code></li>
+<li>Pads zero to digits of different time periods if less than two digits. Set to false to remove zeroes.</li>
+</ul>
+<h4>displayFormat</h4><ul>
+<li>Type: <code>String</code></li>
+<li>Default: <code>HMS</code></li>
+<li><p>Set the display format for countdowntimer. Use the following characters (in order, or out of order) to indicate which time periods you want to display.</p>
+<ul>
+<li>Y - Years</li>
+<li>O - Months</li>
+<li>D - Days</li>
+<li>H - Hours</li>
+<li>M - Minutes</li>
+<li>S - Seconds</li>
+</ul>
+<ul>
+<li><p>If any time period is not displayed, its time value is added to its superior.</p>
+</li>
+<li><p>Usage examples (In order)</p>
+<ul>
+<li>YODHMS</li>
+<li>ODHMS</li>
+<li>DHMS</li>
+<li>HMS</li>
+<li>MS</li>
+<li>S</li>
+<li>M</li>
+<li>H</li>
+<li>D</li>
+<li>O</li>
+<li>Y</li>
+</ul>
+</li>
+<li><p>You can also use the characters out of given order.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>labelsFormat</h4><ul>
+<li>Type: <code>Boolean</code></li>
+<li>Default: <code>false</code></li>
+<li>Gives enhanced display to countdowntimer by adding time period labels. Can be used with regionalOptions to provide regional language support.</li>
+</ul>
+<h4>timeZone</h4><ul>
+<li>Type: <code>Number</code></li>
+<li>Default: <code>null</code></li>
+<li><p>Set the target region timezone with this option. When used, it will countdown with respect to the time in that region. Set hours or minutes in it (works for both UTC + val and UTC - val). Can be used with startDate, dateAndTime and currentTime options.</p>
+</li>
+<li><p>Usage examples</p>
+<ul>
+<li><p>Time Zone of Los Angeles (Pacific Daylight Time) UTC-7</p>
+<ul>
+<li>timeZone : -7</li>
+<li>timeZone : -420</li>
+</ul>
+</li>
+<li><p>Time Zone of Singapore (SGT) UTC+8</p>
+<ul>
+<li>timeZone : +8</li>
+<li>timeZone : +480</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>digits</h4><ul>
+<li>Type: <code>String Array</code></li>
+<li>Default: <code>['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']</code></li>
+<li>Included in regionalOptions is digits array for timer display in regional language digits. For regionalOptions to function, include the localisation js file after the plugin js file.</li>
+</ul>
+<h4>labels</h4><ul>
+<li>Type: <code>String Array</code></li>
+<li>Default: <code>['Years', 'Months', 'Days', 'Hours', 'Minutes', 'Seconds']</code></li>
+<li>Included in regionalOptions is labels array for timer display in regional language time period labels. For regionalOptions to function, include the localisation js file after the plugin js file.</li>
+</ul>
+<h4>isRTL</h4><ul>
+<li>Type: <code>Boolean</code></li>
+<li>Default: <code>false</code></li>
+<li>Set to true for languages that read right-to-left, or false for left-to-right. Included in regionalOptions. For regionalOptions to function, include the localisation js file after the plugin js file.</li>
+</ul>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="methods">Methods</h2><h4>pause</h4><ul>
+<li><p>Use it to Pause / Resume the user defined countdowntimer (hours, minutes, seconds timer).</p>
+<pre class="prettyprint source lang-js"><code>  jQuery(&quot;#hms_timer&quot;).countdowntimer(&quot;pause&quot;, &quot;pause&quot;);
+  jQuery(&quot;#hms_timer&quot;).countdowntimer(&quot;pause&quot;, &quot;resume&quot;);</code></pre></li>
+</ul>
+<h4>stop</h4><ul>
+<li><p>Use it to Stop / Start the user defined countdowntimer (hours, minutes, seconds timer). When stopped, timer resets to defined values.</p>
+<pre class="prettyprint source lang-js"><code>  jQuery(&quot;#hms_timer&quot;).countdowntimer(&quot;stop&quot;, &quot;stop&quot;);
+  jQuery(&quot;#hms_timer&quot;).countdowntimer(&quot;stop&quot;, &quot;start&quot;);</code></pre></li>
+</ul>
+<h4>destroy</h4><ul>
+<li><p>Use it to destroy the countdowntimer.</p>
+<pre class="prettyprint source lang-js"><code>  jQuery(&quot;#hms_timer&quot;).countdowntimer(&quot;destroy&quot;);</code></pre></li>
+</ul>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="usage-examples">Usage examples</h2><p>Following are the different code samples for using <code>countdowntimer</code> method.</p>
+<ul>
+<li><p>Reverse countdown till a specific future date from today. (for eg:- 2020/01/01 00:00:00)</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          dateAndTime : &quot;2020/01/01 00:00:00&quot;‚
+          labelsFormat : true,
+          displayFormat : &quot;YODHMS&quot;,
+          padZeroes : false,
+          timeZone : -7,
+          beforeExpiryTime : &quot;01:01:05:05&quot;,
+          beforeExpiryTimeFunction :  beforeExpiryFunc,
+          timeUp : timeIsUp,
+          expiryUrl : &quot;https://www.npmjs.com/package/countdowntimer&quot;
+      });
+      function beforeExpiryFunc() {
+          //Your code
+      }
+      function timeIsUp() {
+          //Your code
+      }                                
+  });</code></pre></li>
+<li><p>Reverse countdown to zero from time set to hours, minutes &amp; seconds.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          hours : 3‚
+          minutes : 10‚
+          seconds : 10‚
+          displayFormat : &quot;HM&quot;,
+          size : &quot;lg&quot;,
+          timeSeparator : &quot;/&quot;,
+          pauseButton : &quot;pbtnId&quot;,
+          stopButton : &quot;sbtnId&quot;
+      });
+  });</code></pre></li>
+<li><p>Reverse countdown to zero from time set to hours and minutes.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          hours : 3‚
+          minutes : 10‚
+          size : &quot;lg&quot;
+      });
+      function urfunc() {
+          if(yourcond === true) {
+              jQuery(&quot;#cdt&quot;).countdowntimer(&quot;pause&quot;, &quot;pause&quot;);
+          } else {
+              jQuery(&quot;#cdt&quot;).countdowntimer(&quot;pause&quot;, &quot;resume&quot;);
+          } 
+          if(yourothercond === true) {
+              jQuery(&quot;#cdt&quot;).countdowntimer(&quot;stop&quot;, &quot;stop&quot;);    
+          } else {
+              jQuery(&quot;#cdt&quot;).countdowntimer(&quot;stop&quot;, &quot;start&quot;);
+          }
+          jQuery(&quot;#cdt&quot;).countdowntimer(&quot;destroy&quot;);
+      }
+  });</code></pre></li>
+<li><p>Reverse countdown to zero from time set to minutes and seconds.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          minutes : 20‚
+          seconds : 10‚
+          size : &quot;lg&quot;
+      });
+  });</code></pre></li>
+<li><p>Reverse countdown to zero from time set to hours and seconds.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          hours : 2‚
+          seconds : 10‚
+          size : &quot;lg&quot;
+      });
+  });</code></pre></li>
+<li><p>Reverse countdown to zero from time set to only hours.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          hours : 2‚
+          size : &quot;lg&quot;,
+          tickInterval : 60
+      });
+  });</code></pre></li>
+<li><p>Reverse countdown to zero from time set to only minutes.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          minutes : 2‚
+          size : &quot;lg&quot;
+      });
+  });</code></pre></li>
+<li><p>Reverse countdown to zero from time set to only seconds.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          seconds : 25‚
+          size : &quot;lg&quot;
+      });
+  });</code></pre></li>
+<li><p>Display current time.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          currentTime : true‚
+          size : &quot;lg&quot;,
+          borderColor : &quot;#5D09FA&quot;,
+          backgroundColor : &quot;#FAF209&quot;,
+          fontColor : &quot;#FA0909&quot;,
+          timeZone : -420
+      });
+  });</code></pre></li>
+<li><p>Reverse countdown between a given start date (which can be server date and time or any given date) and end date.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          startDate : &quot;2017/10/10 12:00:00&quot;,
+          dateAndTime : &quot;2020/10/10 12:00:00&quot;,
+          size : &quot;lg&quot;
+      });
+  });</code></pre></li>
+<li><p>For taking startDate as current server date and time.</p>
+<pre class="prettyprint source lang-js"><code>      $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+          startDate : &quot;&lt;?php echo date('Y/m/d H:i:s'); ?>&quot;,
+          dateAndTime : &quot;2020/10/10 12:00:00&quot;,
+          size : &quot;lg&quot;,
+          regexpMatchFormat : &quot;([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})&quot;,
+          regexpReplaceWith : &quot;$1&lt;sup>years&lt;/sup> / $2&lt;sup>months&lt;/sup> / $3&lt;sup>days&lt;/sup> / $4&lt;sup>hours&lt;/sup> / $5&lt;sup>minutes&lt;/sup> / $6&lt;sup>seconds&lt;/sup>&quot;
+      });
+  });</code></pre></li>
+<li><p>If no options are provided, by default timer of 60 seconds is displayed in small size.</p>
+<pre class="prettyprint source lang-js"><code>  $(function(){
+      $(&quot;#cdt&quot;).countdowntimer({
+      });
+  });</code></pre></li>
+</ul>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="browser-support">Browser support</h2><ul>
+<li>Chrome (latest)</li>
+<li>Firefox (latest)</li>
+<li>Safari (latest)</li>
+<li>Opera (latest)</li>
+<li>Edge (latest)</li>
+<li>Internet Explorer 9+</li>
+</ul>
+<p>As a jQuery plugin, you also need to see the <a href="http://jquery.com/browser-support/">jQuery Browser Support</a>.</p>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="dependencies">Dependencies</h2><p>jQuery greater than or equal to version 1.5.</p>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="support">Support</h2><p>Please post bug reports and other contributions (enhancements, features) to the GitHub issue tracker.</p>
+<p><a href="#table-of-contents">⬆ back to top</a></p>
+<h2 id="license">License</h2><p>Copyright © <a href="https://remote.com/harshen">Harshen Pandey</a></p>
+<p>Licensed under the <a href="https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE.md">MIT</a> 
+and <a href="https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE-GPL.md">GPLv3</a> license.</p>
+<p><a href="#table-of-contents">⬆ back to top</a></p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Oct 24 2017 02:24:57 GMT+0530 (IST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

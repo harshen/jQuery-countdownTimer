@@ -1,0 +1,16 @@
+{
+    "rules": {
+        "semi": ["off", "always"],
+        "quotes": ["off", "single"],
+        "no-unsafe-finally": "off",
+        "no-native-reassign": "off",
+        "complexity": ["off", 11],
+        "comma-dangle": "error",
+        "require-yield": "off",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "no-octal": "off",
+        "no-mixed-spaces-and-tabs": "off"
+    },
+     "extends": "eslint:recommended"
+}
