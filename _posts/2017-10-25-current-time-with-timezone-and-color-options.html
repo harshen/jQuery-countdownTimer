@@ -1,0 +1,21 @@
+<div id="countdowntimer"><span class="specfuturereg" id="current_timer"><span></div>
+
+<h4 style="margin-top: 4%;">Configuration:-</h4>
+
+<pre><code class="highlight">
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"countdowntimer"</span><span class="nt">&gt;</span><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"current_timer"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">"#current_timer"</span><span class="p">)</span><span class="p">.</span><span class="nx">countdowntimer</span><span class="p">(</span><span class="p">{</span>
+			<span class="nx">currentTime</span> <span class="p">:</span> <span class="s2">true</span><span class="p">,</span>
+			<span class="nx">size</span> <span class="p">:</span> <span class="s2">"lg"</span><span class="p">,</span>
+			<span class="nx">borderColor</span> <span class="p">:</span> <span class="s2">"#5D09FA"</span><span class="p">,</span>
+			<span class="nx">backgroundColor</span> <span class="p">:</span> <span class="s2">"#FAF209"</span><span class="p">,</span>
+			<span class="nx">fontColor</span> <span class="p">:</span> <span class="s2">"#FA0909"</span><span class="p">,</span>
+			<span class="bp">//timeZone of Los Angeles UTC-420</span>
+			<span class="nx">timeZone</span> <span class="p">:</span> <span class="s2">-420</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></span>
+</code></pre>

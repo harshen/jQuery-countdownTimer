@@ -1,505 +1,113 @@
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <title>jquery countDownTimer Demo reverse countdown clock</title>
-        <meta name="description" content="reverse clock plugin for jQuery.">
-            <meta name="keywords" content="jQuery, plugin, count down">
-                <meta name="viewport" content="width=device-width,initial-scale=1">
-                    <script type="text/javascript" src="LIB/jquery-2.0.3.js"></script>
-                    <script type="text/javascript" src="jquery.countdownTimer.min.js"></script>
-                    <link rel="stylesheet" type="text/css" href="CSS/jquery.countdownTimer.css" />
-                    </head>
-                    <body>
-                        <div id="main">
-                            <header>
-                                <h1><a href="https://www.npmjs.com/package/countdowntimer" target="_blank" title="jquery countdownTimer Plugin">jquery countdownTimer Plugin</a>&nbsp;Demo</h1>
-                                <p><a href="http://github.com/harshen/jquery-countdownTimer/zipball/1.0.9" title="Download">Download</a></p>
-                                <p>Reverse count down jquery plugin as per your need.</p>
-                            </header>
-                            <h2 style="color :#0625BC; font-weight: bold;">Initial Setup</h2>
-                            <p>Add this in html page</p><pre style="width:590px;">
-&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-2.0.3.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.countdownTimer.js&quot;&gt;&lt;/script&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;jquery.countdownTimer.css&quot; /&gt;</pre>
-                            <p>add div and span element</p>
-                            <pre style="width:535px;">&lt;div id=&quot;countdowntimer&quot;&gt;&lt;span id=&quot;future_date&quot;&gt;&lt;span&gt;&lt;/div&gt;</pre>
-                            <h3><u>Reverse countdown till a specific future date from today.</u><br/>(for eg:- 2020/01/01 00:00:00)</h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td colspan="8"><span id="future_date"></span></td>
-                                </tr>
-                            </table>
+---
+layout: default
+---
+
+<div class="header-container jumbotron">
+    <div class="container">
+		<div class="pure-g">
+		<div class="pure-u-1-2">
+			<h1><b>{{ site.title }}</b></h1>
+			<p>Reverse Countdown jQuery Plugin.</p>
+			<p class="text-left">
+				<span>
+					<a class="github-button" href="https://github.com/harshen" data-show-count="true" aria-label="Follow @harshen on GitHub">Follow @harshen</a>
+					<a class="github-button" href="https://github.com/harshen/jQuery-countdownTimer" data-icon="octicon-star" data-show-count="true" aria-label="Star harshen/github-buttons on GitHub">Star</a>
+					<a class="github-button" href="https://github.com/harshen/jQuery-countdownTimer/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork harshen/github-buttons on GitHub">Fork</a>
+				</span>
+			</p>
+		</div>
+		<div class="pure-u-1-2">
+			<div class="labeltimer" style="margin-top: 10%;">
+				<p>Time until 2020:</p>
+				<span id="future_date_format"></span>
+			</div>
+		</div>
+	  </div>
+	  <div class="pure-g">
+		<div class="pure-u-1-1">
+			<p>
+			<a class="btn pure-button btn-primary pure-button-primary" href="{{ site.git_address }}" role="button">Learn more</a>
+			<a class="btn pure-button btn-success" style="background: rgb(28, 184, 65);color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);" href="{{ "/releases/download/2.0.0/jQuery.countdownTimer-2.0.0.zip" | prepend: site.git_address }}" role="button"><b class="glyphicon-download"></b>Download</a>
+			</p>
+		</div>
+		</div>
+	  </div>
+    </div>
+</div>
 
 
-                            <script>
-                                $(function(){
-                                    $('#future_date').countdowntimer({
-                                        dateAndTime : "2020/01/01 00:00:00",
-                                        size : "lg",
-                                        regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
-      					regexpReplaceWith: "$1<sup class='displayformat'>days</sup> / $2<sup class='displayformat'>hours</sup> / $3<sup class='displayformat'>minutes</sup> / $4<sup class='displayformat'>seconds</sup>"
-                                    });
-                                });
-                            </script>
-			    <style type="text/css">
-				.displayformat {
-					font-size:18px;
-					font-style: italic;
-				}
-			    </style>
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#future_date&quot;).countdowntimer({
-                dateAndTime : &quot;2020/01/01 00:00:00&quot;&sbquo;
-		size : &quot;lg&quot;&sbquo;
-		regexpMatchFormat: &quot;([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})&quot;&sbquo;
-      		regexpReplaceWith: &quot;$1&lt;sup&gt;days&lt;/sup&gt; / $2&lt;sup&gt;hours&lt;/sup&gt; / $3&lt;sup&gt;minutes&lt;/sup&gt; / $4&lt;sup&gt;seconds&lt;/sup&gt;&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>dateAndTime takes value in format "YYYY/MM/DD HH:MM:SS" where HH is a 24 - hours format.</p>
-                            <p>You may be wondering how to set the "size" option. Well, It's discussed at the end in <a href="#display" title="Display Settings">Display Settings</a>.</p>
-
-			    <h3><u>Reverse countdown between a given start date (which can be server date and time or any given date) and end date.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:60px;text-align:center;">Days</td>
-                                    <td style="width:70px;text-align:center;">Hours</td>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="given_date"></span></td>
-                                </tr>
-                            </table>
-
-
-                            <script>
-                                $(function(){
-                                    $('#given_date').countdowntimer({
-                                        startDate : "2016/10/01 00:00:00",
-                                        dateAndTime : "2020/01/01 00:00:00",
-                                        size : "lg"
-                                    });
-                                });
-                            </script>
-
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#given_date&quot;).countdowntimer({
-                startDate : &quot;2016/10/01 00:00:00&quot;&sbquo; //set server date and time as &quot;&lt;?php echo date(&#39;Y/m/d H:i:s&#39;); ?&gt;&quot;.
-                dateAndTime : &quot;2020/01/01 00:00:00&quot;&sbquo; //end date
-		size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>dateAndTime and startDate takes value in format "YYYY/MM/DD HH:MM:SS" where HH is a 24 - hours format.</p><p> Set server date and time as &quot;&lt;?php echo date(&#39;Y/m/d H:i:s&#39;); ?&gt;&quot;. Please note the format of date ("Y/m/d H:i:s").</p>
-
-                            <h3><u>Reverse countdown to zero from time set to hours, minutes & seconds.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:70px;text-align:center;">Hours</td>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="hms_timer"></span></td><td>&nbsp;&nbsp;<button id="pauseBtnhms">Pause</button></td><td>&nbsp;&nbsp;<button id="stopBtnhms">Stop</button></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#hms_timer').countdowntimer({
-                                        hours : 3,
-                                        minutes :10,
-                                        seconds : 10,
-                                        size : "lg",
-					pauseButton : "pauseBtnhms",
-					stopButton : "stopBtnhms"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#hms_timer&quot;).countdowntimer({
-                hours : 3&sbquo;
-		minutes : 10&sbquo;
-                seconds : 10&sbquo;
-                size : &quot;lg&quot;&sbquo;
-		pauseButton : &quot;pauseBtnhms&quot;&sbquo;
-		stopButton : &quot;stopBtnhms&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>Hours can take positive values starting from 0. Minutes, Seconds takes values from 0 to 59. More information about Pause and Stop buttons is provided in <a href="#more" title="More Settings">More Settings</a>.</p>
-
-                            <h3><u>Reverse countdown to zero from time set to hours and minutes.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:70px;text-align:center;">Hours</td>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="hm_timer"></span></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#hm_timer').countdowntimer({
-                                        hours : 3,
-                                        minutes :10,
-                                        size : "lg"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#hm_timer&quot;).countdowntimer({
-                hours : 3&sbquo;
-		minutes : 10&sbquo;
-                size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>Hours can take positive values starting from 0. Minutes takes values from 0 to 59. </p>
-
-                            <h3><u>Reverse countdown to zero from time set to minutes and seconds.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="ms_timer"></span></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#ms_timer').countdowntimer({
-                                        minutes :20,
-                                        seconds : 10,
-                                        size : "lg"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#ms_timer&quot;).countdowntimer({
-		minutes : 20&sbquo;
-                seconds : 10&sbquo;
-                size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>Minutes takes positive values starting from 0. Seconds takes values from 0 to 59. </p>
-
-                            <h3><u>Reverse countdown to zero from time set to hours and seconds.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:70px;text-align:center;">Hours</td>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="hs_timer"></span></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#hs_timer').countdowntimer({
-                                        hours :2,
-                                        seconds : 10,
-                                        size : "lg"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#hs_timer&quot;).countdowntimer({
-		hours : 2&sbquo;
-                seconds : 10&sbquo;
-                size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>Hours takes positive values starting from 0. Seconds takes values from 0 to 59. </p>
-
-                            <h3><u>Reverse countdown to zero from time set to only hours.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:70px;text-align:center;">Hours</td>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="h_timer"></span></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#h_timer').countdowntimer({
-                                        hours :2,
-                                        size : "lg"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#h_timer&quot;).countdowntimer({
-		hours : 2&sbquo;
-                size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>Hours takes positive values starting from 0. </p>
-
-                            <h3><u>Reverse countdown to zero from time set to only minutes.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="m_timer"></span></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#m_timer').countdowntimer({
-                                        minutes :2,
-                                        size : "lg"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#m_timer&quot;).countdowntimer({
-		minutes : 2&sbquo;
-                size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>Minutes takes positive values starting from 0. </p>
-
-                            <h3><u>Reverse countdown to zero from time set to only seconds.</u></h3>
-                            <span id="s_timer"></span><br/>
-                            <script>
-                                $(function(){
-                                    $('#s_timer').countdowntimer({
-                                        seconds :25,
-                                        size : "lg"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre >$(function(){
-	$(&quot;#s_timer&quot;).countdowntimer({
-		seconds : 25&sbquo;
-                size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>Seconds takes positive values starting from 0. </p>
-
-                            <h3><u>Display current time.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:70px;text-align:center;">Hours</td>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="current_timer"></span></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#current_timer').countdowntimer({
-                                        currentTime : true,
-                                        size : "lg"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre>$(function(){
-	$(&quot;#current_timer&quot;).countdowntimer({
-		currentTime : true&sbquo;
-                size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>currentTime takes either true or false. </p>
-
-                            <h3><u>If no options provided.</u></h3>
-                            <p>If no options are provided, by default timer of 60 seconds is displayed in small size.</p>
-                            <span id="seconds_timer"></span>
-                            <script>
-                                $(function(){
-                                    $('#seconds_timer').countdowntimer({
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre>$(function(){
-	$(&quot;#seconds_timer&quot;).countdowntimer({
-	})&#59;
-})&#59;</pre>
-			    <h2 style="color :#0625BC; font-weight: bold;"><a id="more">More Settings</a></h2>
-                            <h3>timeSeparator</h3>
-                            <p>The separator between the various parts of the countdown timer. By default it is ":".</p>
-                            <h3>tickInterval</h3>
-                            <p>The time interval in which you want countdown to tick. Set the interval in seconds. Note that you should only use intervals that are multiples of a minute (60) and for only seconds timer, in the multiples of the seconds set for timer. By default it is 1.</p>
-                            <h3>timeUp</h3>
-                            <p>The name of the callback function that is invoked when the countdown reaches zero. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.</p>
-                            <h3>expiryUrl</h3>
-                            <p>The Url to load after countdown reaches zero. Provide Url in quotes.</p>
-			    <h3>regexpMatchFormat</h3>
-                            <p>The Regular expression format to be matched and replaced for advanced formatting of timer display.</p>
-                            <h3>regexpReplaceWith</h3>
-                            <p>The replacement text to replace the regular expression.</p>
-                            <h3>pauseButton</h3>
-                            <p>The ID of the button which will Pause / Resume the timer. Provide ID in quotes.</p>
-                            <h3>stopButton</h3>
-                            <p>The ID of the button which will Stop / Start the timer. Provide ID in quotes.</p>
-                            <h3>beforeExpiryTime</h3>
-                            <p>The time before expiry when <b>beforeExpiryTimeFunction</b> needs to be called. Format:- &quot;DD:HH:MM:SS&quot;.</p>
-                            <h3>beforeExpiryTimeFunction</h3>
-                            <p>The name of the callback function that is invoked before the countdown reaches zero at a time set in <b>beforeExpiryTime</b>. Within the function this refers to the division that holds the widget. No parameters are passed in. Provide the name to this option without quotes.</p>
-
-			    <pre>$(function(){
-	$(&quot;#more_options&quot;).countdowntimer({
-                minutes : 20&sbquo;
-                size : &quot;lg&quot;&sbquo;
-                tickInterval : 5&sbquo;
-                timeSeparator : &quot;-&quot;&sbquo;
-                timeUp : timeIsUp&sbquo;
-                expiryUrl : &quot;https://www.npmjs.com/package/countdowntimer&quot;&sbquo;
-                beforeExpiryTime : &quot;00:00:01:05&quot;&sbquo;
-		beforeExpiryTimeFunction :  beforeExpiryFunc
-	})&#59;
-           
-        function timeIsUp() {
-        	//Code to be executed when timer expires.
-        }
-        
-        function beforeExpiryFunc() {
-		//Code to be executed before the timer expires (before 01:05).
-	}
-
-})&#59;</pre>          
-			    <table style="border:0px;">
-                                <tr>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="more_options"></span></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#more_options').countdowntimer({
-                                        minutes : 20,
-                                        size : "lg",
-                                        tickInterval : 5,
-                                        timeSeparator : "-"
-                                    });
-                                });
-                            </script>
-                            <h2 style="color :#0625BC; font-weight: bold;"><a id="display">Display Settings</a></h2>
-                            <h3><u>Sizes (use bootstrap sizes notation).</u></h3>
-                            <pre>$(function(){
-	$(&quot;#xlarge&quot;).countdowntimer({
-                dateAndTime : &quot;2020/01/01 00:00:00&quot;&sbquo;
-                size : &quot;lg&quot;
-	})&#59;
-})&#59;</pre>
-                            <div id="sizes_demo">
-                                <div><strong>xl</strong>-Extra large</div><br/>
-                                <span id="xlarge"></span><br/><br/>
-                                <div><strong>lg</strong>-Large</div><br/>
-                                <span id="large"></span><br/><br/>
-                                <div><strong>md</strong>-Medium</div><br/>
-                                <span id="medium"></span><br/><br/>
-                                <div><strong>sm</strong>-Small</div><br/>
-                                <span id="small"></span><br/><br/>
-                                <div><strong>xs</strong>-Extra small</div><br/>
-                                <span id="xsmall"></span><br/><br/>
-                            </div>
-
-                            <script>
-                                $(function(){
-                                    $('#xlarge').countdowntimer({
-                                        dateAndTime : "2020/01/01 00:00:00",
-                                        size : "xl"
-                                    });
-
-                                    $('#large').countdowntimer({
-                                        dateAndTime : "2020/01/01 00:00:00",
-                                        size : "lg"
-                                    });
-
-                                    $('#medium').countdowntimer({
-                                        dateAndTime : "2020/01/01 00:00:00",
-                                        size : "md"
-                                    });
-
-                                    $('#small').countdowntimer({
-                                        dateAndTime : "2020/01/01 00:00:00",
-                                        size : "sm"
-                                    });
-
-                                    $('#xsmall').countdowntimer({
-                                        dateAndTime : "2020/01/01 00:00:00",
-                                        size : "xs"
-                                    });
-                                });
-                            </script>
-                            <p>What else, you can also set the border color, background and font color. See below.</p>
-
-                            <h3><u>Setting border color, background and font color.</u></h3>
-                            <table style="border:0px;">
-                                <tr>
-                                    <td style="width:70px;text-align:center;">Hours</td>
-                                    <td style="width:60px;text-align:center;">Minutes</td>
-                                    <td style="width:70px;text-align:center;">Seconds</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4"><span id="color_timer"></span></td>
-                                </tr>
-                            </table>
-                            <script>
-                                $(function(){
-                                    $('#color_timer').countdowntimer({
-                                        currentTime : true,
-                                        size : "lg",
-                                        borderColor : "#5D09FA",
-                                        backgroundColor : "#FAF209",
-                                        fontColor : "#FA0909"
-                                    });
-                                });
-                            </script>
-                            <h4>Settings:-</h4>
-                            <pre>$(function(){
-	$(&quot;#current_timer&quot;).countdowntimer({
-		currentTime : true&sbquo;
-                size : &quot;lg&quot;&sbquo;
-                borderColor : &quot;#5D09FA&quot;&sbquo;
-                backgroundColor : &quot;#FAF209&quot;&sbquo;
-                fontColor : &quot;#FA0909&quot;
-	})&#59;
-})&#59;</pre>
-                            <p>By default borderColor is "#F0068E", fontColor is "#FFFFFF", backgroundColor is "#000000".</p>
-                            <br/><br/>
-                            <h3><u>Note:-</u></h3>
-                            <p>Please take care not to use timer options(<b>hours, minutes, seconds</b>), <b>dateAndTime</b> and <b>currentTime</b> simultaneously as all these options display different time.<br/>
-<b>regexpMatchFormat</b> and <b>regexpReplaceWith</b> will not work if used simultaneously with <b>timeSeparator</b> option as they have same purpose, i.e. formatting. For basic usage go for <b>timeSeparator</b>.</p>
-                            <br/><br/>
-                            <footer>
-                                <p>Licensed under the <a href="http://opensource.org/licenses/MIT" target="_blank" title="MIT">MIT</a> and <a href="http://www.gnu.org/licenses/gpl.html" target="_blank" title="GPL v3">GPL v3</a> Project page <a href="https://github.com/harshen/jquery-countdownTimer" target="_blank" title="Link">Link</a>
-                                    Author: <a href="http://harshen.github.io/" target="_blank" title="Harshen Pandey">Harshen Pandey</a> (harshenpandey@gmail.com)</p>
-                            </footer>
-                            <style>
-                                body{margin:0px; padding:0px;}
-                                #main{margin:0px auto; padding:0px; width:900px;position:relative;}
-                                pre{
-                                    background:#F8F8D2;padding:10px;
-                                    border: 2px solid #673E3E;
-                                    border-radius: 3px;
-                                    color: #222222;
-                                }
-                            </style>
-                        </div>
-                    </body>
-                    </html>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="header-light regular-pad">All Time Support</h2>
+            <blockquote>
+              <p class="text-justify">{{ site.description }}</p>
+          <strong><p class="text-justify">
+          Read our <a href="{{ "/docs/features/" | prepend: site.baseurl }}">Documentation</a> and follow our <a href="{{ site.posts.first.url | prepend: site.baseurl }}">Examples</a> to see what suits your particular needs.
+          </p></strong>
+            </blockquote>
+            <div style="margin-left: 5%;float: left;"><span id="future_date"></span></div>
+            <span class="text-left">
+            <h4 class="col-sm-12">Features</h4>
+            <ul class="col-sm-12 col-sm-offset-1">
+				<li>Supports jQuery v1.5+</li>
+				<li>Supports 27 options</li>
+				<li>Supports 5 methods</li>
+				<li>Supports regional languages</li>
+				<li>Supports different timezones</li>
+				<li>Supports different sizes</li>
+				<li>Supports Pause / Resume Timer</li>
+				<li>Supports Start / Stop Timer</li>
+				<li>Supports time expire callback</li>
+				<li>Supports custom styling</li>
+				<li>Cross-browser support</li>
+            </ul>
+            </span>
+        </div>
+        <div class="col-md-6 text-left">
+            <article>
+				<h2>Getting Started</h2>
+				<h4>Install through NPM</h4>
+				<pre><code class="highlight" data-lang="bash">npm install countdowntimer</code></pre>
+				<p></p>
+				<h4>Or Download the Plugin files</h4>
+				<a class="btn btn-lg pure-button btn-success" style="background: rgb(28, 184, 65);color: white; border-radius: 4px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);" href="{{ "/releases/download/2.0.0/jQuery.countdownTimer-2.0.0.zip" | prepend: site.git_address }}" role="button"><b class="glyphicon-download"></b>Download jQuery CountdownTimer</a>
+				<p></p>
+				<h4><p class="text-justify">Include the css and js files. Add a div and span element.</p></h4>
+				<pre><code class="highlight" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"countdowntimer"</span><span class="nt">&gt;<span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"future_date"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="nt">&lt;/div&gt;</span></code></pre>
+				<h4><p class="text-justify">Initialize the countdowntimer method with the required options on the span element id.</p></h4>
+				<pre><code class="highlight"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">"#future_date"</span><span class="p">)</span><span class="p">.</span><span class="nx">countdowntimer</span><span class="p">(</span><span class="p">{</span>
+			<span class="nx">dateAndTime</span> <span class="p">:</span> <span class="s2">"2020/01/01 00:00:00"</span><span class="p">,</span>
+			<span class="nx">size</span> <span class="p">:</span> <span class="s2">"lg"</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></span></code></pre>
+            </article>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <h1 class="text-center"><i class="fa fa-pencil" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Easy to install and use</h3>
+            <p class="text-center">Get started by installing through NPM or <a href="{{ "/releases/download/2.0.0/jQuery.countdownTimer-2.0.0.zip" | prepend: site.git_address }}">download</a> source files from GitHub project. Include the plugin js and css files and call countdowntimer on an element. Easily configure and use as required. Refer <a href="{{ site.git_address }}">docs</a> for more understanding.</p>
+        </div>
+        <div class="col-md-3">
+            <h1 class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Modular Styling and Formatting</h3>
+            <p class="text-center">Display the time periods as required. Control the size, color, separator or use timer with labels. Configure to use regional language. Set target region timezone.</p>
+        </div>
+        <div class="col-md-3">
+            <h1 class="text-center"><i class="fa fa-github" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Get involved</h3>
+            <p class="text-center">This is an open source project. You can participate by <a href="{{ "/issues" | prepend: site.git_address }}">reporting bugs</a>, <a href="{{ "/pulls" | prepend: site.git_address }}">submitting enchancements</a>, <a href="{{ "/issues?q=is%3Aopen" | prepend: site.git_address }}">helping others</a>.</p>
+        </div>
+        <div class="col-md-3">
+            <h1 class="text-center"><i class="fa fa-paypal" aria-hidden="true"></i></h1>
+            <h3 class="text-center">Donate Via Paypal</h3>
+            <p class="text-center"><a href="https://www.paypal.me/harshenpandey/">You can donate through Paypal </a>if you've used the plugin, or plan to use. Consider a donation - any amount will help.</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="{{ site.baseurl }}/">
+                <span><img src="{{site.baseurl}}/favicon.ico"></span> {{ site.title }}
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li {% if page.sectionid=='docs' %} class="active" {% endif %}><a href="{{ "/docs/features/" | prepend: site.baseurl }}">Documentation</a></li>
+                <li {% if page.sectionid=='blog' %} class="active" {% endif %}><a href="{{ site.posts.first.url | prepend: site.baseurl }}">Demo</a></li>
+                <li {% if page.sectionid=='testpage' %} class="active" {% endif %}><a href="{{ "/tests.html" | prepend: site.baseurl }}">Test Coverage</a></li>
+                <li {% if page.sectionid=='repo' %} class="active" {% endif %}><a href="{{ site.git_address }}">GitHub Repo</a></li>
+                <li {% if page.sectionid=='npm' %} class="active" {% endif %}><a href="https://www.npmjs.com/package/countdowntimer">NPM JS</a></li>
+            </ul>
+            <div>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group has-feedback">
+                        <input id="search-box" type="text" class="form-control" placeholder="Search...">
+                        <i class="fa fa-search form-control-feedback"></i>
+                    </div>
+                </form>
+                <!--<ul class="nav navbar-nav">
+                    <li><a href="{{ site.git_address }}"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                </ul>-->
+            </div>
+        </div>
+    </div>
+</nav>

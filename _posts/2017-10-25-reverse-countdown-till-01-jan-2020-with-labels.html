@@ -1,0 +1,17 @@
+<div id="countdowntimer"><span class="labeltimer" id="label_timer"><span></div>
+
+<h4 style="margin-top: 14%;">Configuration:-</h4>
+
+<pre><code class="highlight">
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"countdowntimer"</span><span class="nt">&gt;</span><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"label_timer"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">"#label_timer"</span><span class="p">)</span><span class="p">.</span><span class="nx">countdowntimer</span><span class="p">(</span><span class="p">{</span>
+			<span class="nx">dateAndTime</span> <span class="p">:</span> <span class="s2">"2020/01/01 00:00:00"</span><span class="p">,</span>
+			<span class="nx">labelsFormat</span> <span class="p">:</span> <span class="s2">true</span><span class="p">,</span>
+			<span class="nx">displayFormat</span> <span class="p">:</span> <span class="s2">"YODHMS"</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></span>
+</code></pre>

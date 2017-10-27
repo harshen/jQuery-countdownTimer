@@ -1,0 +1,29 @@
+<footer class="footer">
+    <div class="container">
+        <p class="text-center">
+            {{ site.title }} {{ site.time | date: '%Y' }} | Copyright <a class="fa fa-copyright" href="https://remote.com/harshen">Harshen Pandey</a>.
+        </p>
+        <p class="text-center">
+			<span>
+				<a class="github-button" href="https://github.com/harshen" data-show-count="true" aria-label="Follow @harshen on GitHub">Follow @harshen</a>
+				<a class="github-button" href="https://github.com/harshen/jQuery-countdownTimer" data-icon="octicon-star" data-show-count="true" aria-label="Star harshen/github-buttons on GitHub">Star</a>
+				<a class="github-button" href="https://github.com/harshen/jQuery-countdownTimer/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork harshen/github-buttons on GitHub">Fork</a>
+			</span>
+        </p>
+        <p class="text-center">
+      jQuery CountdownTimer was created and is maintained by <a href="https://github.com/harshen" target="_blank">@harshen</a>
+      <br>
+      This is a free software and is licensed under the <a href="{{ "/blob/master/LICENSE.md" | prepend: site.git_address }}" target="_blank">MIT License</a> and <a href="{{ "/blob/master/LICENSE-GPL.md" | prepend: site.git_address }}" target="_blank">GPL-3.0 License</a>
+    </p>
+		<nav class="text-center">
+			<ul class="list-inline">
+                <li><a href="{{ "/docs/features/" | prepend: site.baseurl }}">Documentation</a></li>
+                <li><a href="{{ site.posts.first.url | prepend: site.baseurl }}">Demo</a></li>
+                <li><a href="{{ "/tests.html" | prepend: site.baseurl }}">Test Coverage</a></li>
+                <li><a href="{{ site.git_address }}">GitHub Repo</a></li>
+                <li><a href="https://www.npmjs.com/package/countdowntimer">NPM JS</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+<a class="text-muted" href="{{ site.git_address }}"><img style="position: absolute; top: 0; right: 0; border: 0; position: fixed; z-index: 1050;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>

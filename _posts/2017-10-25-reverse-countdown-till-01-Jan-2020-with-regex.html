@@ -1,0 +1,26 @@
+<div id="countdowntimer"><span class="specfuturereg" id="specfuture_date"><span></div>
+
+<h4 style="margin-top: 4%;">Configuration:-</h4>
+
+<pre><code class="highlight">
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"countdowntimer"</span><span class="nt">&gt;</span><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"specfuture_date"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">"#specfuture_date"</span><span class="p">)</span><span class="p">.</span><span class="nx">countdowntimer</span><span class="p">(</span><span class="p">{</span>
+			<span class="nx">dateAndTime</span> <span class="p">:</span> <span class="s2">"2020/01/01 00:00:00"</span><span class="p">,</span>
+			<span class="nx">size</span> <span class="p">:</span> <span class="s2">"sm"</span><span class="p">,</span>
+			<span class="nx">displayFormat</span> <span class="p">:</span> <span class="s2">"YODHMS"</span><span class="p">,</span>
+			<span class="nx">regexpMatchFormat</span> <span class="p">:</span> <span class="s2">"([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})"</span><span class="p">,</span>
+			<span class="nx">regexpReplaceWith</span> <span class="p">:</span> <span class="s2">"$1&lt;sup class='displayformat'&gt;years&lt;/sup> / $2&lt;sup class='displayformat'>months&lt;/sup&gt; / $3&lt;sup class='displayformat'&gt;days&lt;/sup&gt; / $4&lt;sup class='displayformat'&gt;hours&lt;/sup&gt; / $5&lt;sup class='displayformat'&gt;minutes&lt;/sup&gt; / $6&lt;sup class='displayformat'&gt;seconds&lt;/sup&gt;"</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></span>
+
+<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+	<span class="kd">.displayformat</span> <span class="p">{</span>
+		<span class="nx">font-size</span> <span class="p">:</span> <span class="s2">18px</span><span class="p">;</span>
+		<span class="nx">font-style</span> <span class="p">:</span> <span class="s2">italic</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre>

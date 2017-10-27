@@ -1,0 +1,31 @@
+<div id="countdowntimer">
+	
+	<p><span class="specfuturereg" id="xl_timer"></span></p>
+		
+	<p><span class="specfuturereg" id="lg_timer"></span></p>
+		
+	<p><span class="specfuturereg" id="md_timer"></span></p>
+		
+	<p><span class="specfuturereg" id="sm_timer"></span></p>
+		
+	<p><span class="specfuturereg" id="xs_timer"></span></p>
+		
+</div>
+
+<h4 style="margin-top: 4%;">Configuration:-</h4>
+
+<pre><code class="highlight">
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"countdowntimer"</span><span class="nt">&gt;</span><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"xl_timer"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">"#xl_timer"</span><span class="p">)</span><span class="p">.</span><span class="nx">countdowntimer</span><span class="p">(</span><span class="p">{</span>
+			<span class="nx">dateAndTime</span> <span class="p">:</span> <span class="s2">"2020/01/01 00:00:00"</span><span class="p">,</span>
+			<span class="bp">//Use the required size (xl, lg, md, sm, xs)</span>
+			<span class="nx">size</span> <span class="p">:</span> <span class="s2">"xl"</span><span class="p">,</span>
+			<span class="nx">displayFormat</span> <span class="p">:</span> <span class="s2">"YODHMS"</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></span>
+</code></pre>
+

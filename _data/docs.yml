@@ -1,0 +1,44 @@
+- title: Features
+  docs:
+  - features
+
+- title: Main
+  docs:
+  - main
+
+- title: Getting Started
+  docs:
+  - install
+  - include-files
+  - usage
+  - faq
+  - notes
+  
+- title: Options
+  docs:
+  - overview
+  - details
+  
+- title: Methods
+  docs:
+  - methods
+  
+- title: Usage Examples
+  docs:
+  - usage-examples
+  
+- title: Browser Support
+  docs:
+  - browser-support
+  
+- title: Dependencies
+  docs:
+  - dependencies
+  
+- title: Support
+  docs:
+  - support
+  
+- title: License
+  docs:
+  - license

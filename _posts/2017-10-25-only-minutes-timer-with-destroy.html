@@ -1,0 +1,31 @@
+<div class="pure-g" id="countdowntimer">
+	<div class="pure-u-1-2"  style="width: 30%;">
+		<span class="specfuturereg" id="m_timer"><span>
+	</div>
+	<div class="text-left pure-u-1-2" style="width: 30%; margin-top: 4%;">
+		<button class="btn pure-button btn-primary" id="destroyBtn">Destroy</button>
+	</div>
+</div>
+
+
+<h4 style="margin-top: 4%;">Configuration:-</h4>
+
+<pre><code class="highlight">
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"countdowntimer"</span><span class="nt">&gt;</span><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"m_timer"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"destroyBtn"</span><span class="nt">&gt;</span><span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">"#m_timer"</span><span class="p">)</span><span class="p">.</span><span class="nx">countdowntimer</span><span class="p">(</span><span class="p">{</span>
+			<span class="nx">minutes</span> <span class="p">:</span> <span class="s2">10</span><span class="p">,</span>
+			<span class="nx">size</span> <span class="p">:</span> <span class="s2">"lg"</span><span class="p">,</span>
+			<span class="nx">displayFormat</span> <span class="p">:</span> <span class="s2">"MS"</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+	
+	<span class="nx">$</span><span class="p">(</span><span class="s2">"#destroyBtn"</span><span class="p">)</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="kd">function() </span><span class="p">{</span>
+		<span class="bp">//Use below method call to destroy the timer.</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">"#m_timer"</span><span class="p">)</span><span class="p">.</span><span class="nx">countdowntimer</span><span class="p">(</span><span class="s2">"destroy"</span><span class="p">);</span>
+	<span class="p">});</span>	
+<span class="nt">&lt;/script&gt;</span></span>
+</code></pre>

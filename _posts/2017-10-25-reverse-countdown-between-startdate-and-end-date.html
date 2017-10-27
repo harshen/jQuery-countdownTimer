@@ -1,0 +1,20 @@
+<div id="countdowntimer"><span class="specfuturereg" id="startend_date"><span></div>
+
+<h4 style="margin-top: 4%;">Configuration:-</h4>
+
+<pre><code class="highlight">
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"countdowntimer"</span><span class="nt">&gt;</span><span class="nt">&lt;span</span> <span class="na">id=</span><span class="s">"startend_date"</span><span class="nt">&gt;&lt;/span&gt;</span><span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s2">"#startend_date"</span><span class="p">)</span><span class="p">.</span><span class="nx">countdowntimer</span><span class="p">(</span><span class="p">{</span>
+			<span class="bp">//Set server date and time as "</span><span class="bp">&lt;</span><span class="bp">?php echo date('Y/m/d H:i:s'); ?</span><span class="bp">&gt;</span><span class="bp">".</span>
+			<span class="nx">startDate</span> <span class="p">:</span> <span class="s2">"2016/01/01 00:00:00"</span><span class="p">,</span>
+			<span class="nx">dateAndTime</span> <span class="p">:</span> <span class="s2">"2020/01/01 00:00:00"</span><span class="p">,</span>
+			<span class="nx">size</span> <span class="p">:</span> <span class="s2">"lg"</span><span class="p">,</span>
+			<span class="nx">displayFormat</span> <span class="p">:</span> <span class="s2">"YODHMS"</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span></span>
+</code></pre>
+

@@ -1,0 +1,58 @@
+# Site settings
+title: jQuery Countdown Timer
+email: harshenpandey@gmail.com
+description: >
+  CountdownTimer is a reverse count down jQuery plugin for displaying countdown as per need with 
+  its different configuration options. It is a perfect match for any coupon, auction site or 
+  product launch page. It also displays current time and comes with timezone and many regional 
+  languages support.
+baseurl: https://harshen.github.io/jQuery-countdownTimer
+git_address: https://github.com/harshen/jQuery-countdownTimer
+bootwatch: paper
+markdown: kramdown
+highlighter: rouge
+gems:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .idea/
+  - .gitignore
+  - README.md
+timezone: Europe/Berlin
+defaults:
+- scope:
+    path: _posts
+    type: posts
+  values:
+    layout: post
+    sectionid: blog
+
+- scope:
+    path: _docs
+    type: docs
+  values:
+    layout: docs
+    sectionid: docs
+    seo:
+      type: "WebPage"
+
+- scope:
+    path: tests.html
+    type: pages
+  values:
+    layout: default
+    sectionid: testpage
+    title: Test Coverage
+
+collections:
+  docs:
+    permalink: /:collection/:path/
+    output: true
+  posts:
+    permalink: /blog/:year/:month/:day/:title/
+    output: true
