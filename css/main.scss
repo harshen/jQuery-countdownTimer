@@ -42,7 +42,8 @@ body {
 
 .header-container {
   background-color: black;
-  background: url('../img/cdtheader.jpg') no-repeat 50% 0;
+  /*background: url('../img/cdtheader.jpg') no-repeat 50% 0;*/
+  background-image: -webkit-linear-gradient(75deg, #ff3131, #000000);
   color: #fff;
 
   h1 {
@@ -88,6 +89,8 @@ body {
 
 .labelformat .timerDisplay .displaySection {
 	-webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
 }
 
 .displayformat {
@@ -110,4 +113,10 @@ span#future_date::before {
 .labeltimer {
 	float: right; 
 	line-height: 1.157; 
+}
+
+.cdtheadertext {
+    color: #e0ffb9;
+    font-family: -webkit-body;
+    font-style: italic;
 }
