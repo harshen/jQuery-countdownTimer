@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
- * Urdu (اردو) localisation for jQuery CountdownTimer @version2.0.0
+ * Urdu (اردو) localisation for jQuery CountdownTimer @version2.0.1
  */
 
 (function($) {

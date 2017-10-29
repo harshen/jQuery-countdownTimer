@@ -1,4 +1,4 @@
-/*! CountdownTimer for jQuery @version2.0.0 (https://harshen.github.io/jQuery-countdownTimer/).
+/*! CountdownTimer for jQuery @version2.0.1 (https://harshen.github.io/jQuery-countdownTimer/).
  *  Written by Harshen Pandey (https://remote.com/harshen) January 2014.
  *  @license MIT (https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE.md)
  *  and GPLv3 (https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE-GPL.md).

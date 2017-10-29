@@ -18,7 +18,7 @@ $(function() {
     QUnit.test('CountdownTimer tickInterval', function(assert) {
         assert.expect(3);
         $('#countd').countdowntimer({
-            hours: 01,
+            hours: 1,
             minutes: 10,
             seconds: 30,
             tickInterval: 10
@@ -38,7 +38,7 @@ $(function() {
             bforeexpiry = true;
         }
         $('#countd').countdowntimer({
-            hours: 01,
+            hours: 1,
             minutes: 10,
             seconds: 30,
             beforeExpiryTime: "00:01:10:25",
@@ -87,20 +87,20 @@ $(function() {
     QUnit.test('CountdownTimer padZeroes', function(assert) {
         assert.expect(3);
         $('#countd').countdowntimer({
-            hours: 01,
+            hours: 1,
             minutes: 10,
             seconds: 05
         });
         assert.equal($('#countd').text(), "01:10:05", 'Default padZeroes');
         $('#countd').countdowntimer({
-            hours: 01,
+            hours: 1,
             minutes: 10,
             seconds: 05,
             padZeroes: false
         });
         assert.equal($('#countd').text(), "1:10:5", 'Remove padZeroes');
         $('#countd').countdowntimer({
-            hours: 01,
+            hours: 1,
             minutes: 10,
             seconds: 05,
             padZeroes: true
@@ -240,10 +240,11 @@ $(function() {
 
     QUnit.test('CountdownTimer Options', function(assert) {
         assert.expect(24);
+        var datetime = new Date("1970/01/01 00:00:00");
         assert.equal($.fn.countdowntimer.defaults.hours, 0, 'Default Hours');
         assert.equal($.fn.countdowntimer.defaults.minutes, 0, 'Default Minutes');
         assert.equal($.fn.countdowntimer.defaults.seconds, 60, 'Default Seconds');
-        assert.equal($.fn.countdowntimer.defaults.dateAndTime, "Thu Jan 01 1970 00:00:00 GMT+0530 (IST)", 'Default dateAndTime');
+        assert.equal($.fn.countdowntimer.defaults.dateAndTime, datetime.toString(), 'Default dateAndTime');
         assert.equal($.fn.countdowntimer.defaults.currentTime, false, 'Default currentTime');
         assert.equal($.fn.countdowntimer.defaults.size, "sm", 'Default size');
         assert.equal($.fn.countdowntimer.defaults.borderColor, "#F0068E", 'Default borderColor');
@@ -271,7 +272,7 @@ $(function() {
     });
 
     QUnit.test('CountdownTimer Display Options', function(assert) {
-        assert.expect(13);
+        assert.expect(16);
         $('#countd').countdowntimer({
             hours: 10,
             minutes: 20,
@@ -308,58 +309,61 @@ $(function() {
         });
         assert.equal($('#countd').hasClass("size_xs"), true, 'Size xs');
         $('#countd').countdowntimer({
-            hours: 08,
-            minutes: 07,
-            seconds: 09,
+            hours: 8,
+            minutes: 7,
+            seconds: 9,
             padZeroes: true
         });
         assert.equal($('#countd').text(), "08:07:09", 'Padzeroes to CountdownTimer');
         $('#countd').countdowntimer({
-            hours: 08,
-            minutes: 07,
-            seconds: 09,
+            hours: 8,
+            minutes: 7,
+            seconds: 9,
             padZeroes: false
         });
         assert.equal($('#countd').text(), "8:7:9", "Don't Padzeroes to CountdownTimer");
         $('#countd').countdowntimer({
-            hours: 08,
-            minutes: 07,
-            seconds: 09,
-            borderColor: "rgb(93, 9, 250)"
+            hours: 8,
+            minutes: 7,
+            seconds: 9,
+            borderColor : "rgb(93, 9, 250)"
         });
-        assert.equal($('#countd').css("border-color"), "rgb(93, 9, 250)", "Set borderColor to CountdownTimer");
+        assert.equal($('#countd').css("borderTopColor"), "rgb(93, 9, 250)", "Set borderTopColor to CountdownTimer");
+        assert.equal($('#countd').css("borderRightColor"), "rgb(93, 9, 250)", "Set borderRightColor to CountdownTimer");
+        assert.equal($('#countd').css("borderBottomColor"), "rgb(93, 9, 250)", "Set borderBottomColor to CountdownTimer");
+        assert.equal($('#countd').css("borderLeftColor"), "rgb(93, 9, 250)", "Set borderLeftColor to CountdownTimer");
         $('#countd').countdowntimer({
-            hours: 08,
-            minutes: 07,
-            seconds: 09,
+            hours: 8,
+            minutes: 7,
+            seconds: 9,
             fontColor: "rgb(250, 9, 9)"
         });
         assert.equal($('#countd').css("color"), "rgb(250, 9, 9)", "Set fontColor to CountdownTimer");
         $('#countd').countdowntimer({
-            hours: 08,
-            minutes: 07,
-            seconds: 09,
+            hours: 8,
+            minutes: 7,
+            seconds: 9,
             backgroundColor: "rgb(250, 242, 9)"
         });
         assert.equal($('#countd').css("background-color"), "rgb(250, 242, 9)", "Set backgroundColor to CountdownTimer");
         $('#countd').countdowntimer({
-            hours: 08,
-            minutes: 07,
-            seconds: 09,
+            hours: 8,
+            minutes: 7,
+            seconds: 9,
             timeSeparator: "/"
         });
         assert.equal($('#countd').text(), "08/07/09", "Set timeSeparator to CountdownTimer");
         $('#countd').countdowntimer({
-            hours: 08,
-            minutes: 07,
-            seconds: 09,
+            hours: 8,
+            minutes: 7,
+            seconds: 9,
             labelsFormat: true
         });
         assert.equal($('#countd').hasClass("labelformat"), true, "Set labelsFormat to CountdownTimer");
         $('#countd').countdowntimer({
-            hours: 08,
-            minutes: 07,
-            seconds: 09,
+            hours: 8,
+            minutes: 7,
+            seconds: 9,
             regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
             regexpReplaceWith: "$1:$2:$3"
         });

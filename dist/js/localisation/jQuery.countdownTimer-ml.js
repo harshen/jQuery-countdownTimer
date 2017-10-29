@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
- * Malayalam / (Indian > Kerala) localisation for jQuery CountdownTimer @version2.0.0
+ * Malayalam / (Indian > Kerala) localisation for jQuery CountdownTimer @version2.0.1
  */
 
 (function($) {

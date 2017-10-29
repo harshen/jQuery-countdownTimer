@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
- * Lithuanian localisation for jQuery CountdownTimer @version2.0.0
+ * Lithuanian localisation for jQuery CountdownTimer @version2.0.1
  */
 
 (function($) {

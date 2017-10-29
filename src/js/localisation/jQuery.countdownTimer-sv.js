@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
- * Swedish localisation for jQuery CountdownTimer @version2.0.0
+ * Swedish localisation for jQuery CountdownTimer @version2.0.1
  */
 
 (function($) {

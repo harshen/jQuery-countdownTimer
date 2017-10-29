@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
- * Finnish localisation for jQuery CountdownTimer @version2.0.0
+ * Finnish localisation for jQuery CountdownTimer @version2.0.1
  */
 
 (function($) {

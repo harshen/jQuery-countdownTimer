@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
-   Burmese localisation for jQuery CountdownTimer @version2.0.0
+   Burmese localisation for jQuery CountdownTimer @version2.0.1
  */
 
 (function($) {

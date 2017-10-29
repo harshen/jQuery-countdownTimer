@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
- * Italian localisation for jQuery CountdownTimer @version2.0.0
+ * Italian localisation for jQuery CountdownTimer @version2.0.1
  */
 
 (function($) {

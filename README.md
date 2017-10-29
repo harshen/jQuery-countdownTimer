@@ -34,7 +34,7 @@ and help spread the word. If you've used the plugin, or plan to use, consider a 
 - Supports jQuery v1.5+
 - Supports 27 [options](#options)
 - Supports 5 [methods](#methods)
-- Supports regional languages
+- Supports more than 50 regional languages
 - Supports different timezones
 - Supports different sizes
 - Supports Pause / Resume Timer
@@ -50,8 +50,8 @@ and help spread the word. If you've used the plugin, or plan to use, consider a 
 ```text
 dist/
 ├── js/
-|   ├── jQuery.countdownTimer.js
-|   ├── jQuery.countdownTimer.min.js   (compressed)
+|   ├── jQuery.countdownTimer.js   (37.16 kB)
+|   ├── jQuery.countdownTimer.min.js   (compressed - 18.28 kB)
 |   ├── localisation/
 |       └── jQuery.countdownTimer-[region-code].js (regional language support js files)
 ├── css/
@@ -430,7 +430,7 @@ Following are the different code samples for using `countdowntimer` method.
 	```js
 	$(function(){
 		$("#cdt").countdowntimer({
-		        dateAndTime : "2020/01/01 00:00:00"‚
+			dateAndTime : "2020/01/01 00:00:00"‚
 			labelsFormat : true,
 			displayFormat : "YODHMS",
 			padZeroes : false,
@@ -454,11 +454,11 @@ Following are the different code samples for using `countdowntimer` method.
 	```js
 	$(function(){
 		$("#cdt").countdowntimer({
-		        hours : 3‚
+			hours : 3‚
 			minutes : 10‚
-		        seconds : 10‚
+			seconds : 10‚
 			displayFormat : "HM",
-		        size : "lg",
+			size : "lg",
 			timeSeparator : "/",
 			pauseButton : "pbtnId",
 			stopButton : "sbtnId"
@@ -471,9 +471,9 @@ Following are the different code samples for using `countdowntimer` method.
 	```js
 	$(function(){
 		$("#cdt").countdowntimer({
-		        hours : 3‚
+			hours : 3‚
 			minutes : 10‚
-		        size : "lg"
+			size : "lg"
 		});
 		function urfunc() {
 			if(yourcond === true) {
@@ -497,8 +497,8 @@ Following are the different code samples for using `countdowntimer` method.
 	$(function(){
 		$("#cdt").countdowntimer({
 			minutes : 20‚
-		        seconds : 10‚
-		        size : "lg"
+			seconds : 10‚
+			size : "lg"
 		});
 	});
 	```
@@ -509,8 +509,8 @@ Following are the different code samples for using `countdowntimer` method.
 	$(function(){
 		$("#cdt").countdowntimer({
 			hours : 2‚
-		        seconds : 10‚
-		        size : "lg"
+			seconds : 10‚
+			size : "lg"
 		});
 	});
 	```
@@ -521,7 +521,7 @@ Following are the different code samples for using `countdowntimer` method.
 	$(function(){
 		$("#cdt").countdowntimer({
 			hours : 2‚
-		        size : "lg",
+			size : "lg",
 			tickInterval : 60
 		});
 	});
@@ -533,7 +533,7 @@ Following are the different code samples for using `countdowntimer` method.
 	$(function(){
 		$("#cdt").countdowntimer({
 			minutes : 2‚
-		        size : "lg"
+			size : "lg"
 		});
 	});
 	```
@@ -544,7 +544,7 @@ Following are the different code samples for using `countdowntimer` method.
 	$(function(){
 		$("#cdt").countdowntimer({
 			seconds : 25‚
-		        size : "lg"
+			size : "lg"
 		});
 	});
 	```
@@ -555,7 +555,7 @@ Following are the different code samples for using `countdowntimer` method.
 	$(function(){
 		$("#cdt").countdowntimer({
 			currentTime : true‚
-		        size : "lg",
+			size : "lg",
 			borderColor : "#5D09FA",
 			backgroundColor : "#FAF209",
 			fontColor : "#FA0909",
@@ -571,7 +571,7 @@ Following are the different code samples for using `countdowntimer` method.
 		$("#cdt").countdowntimer({
 			startDate : "2017/10/10 12:00:00",
 			dateAndTime : "2020/10/10 12:00:00",
-		        size : "lg"
+			size : "lg"
 		});
 	});
 	```
@@ -583,7 +583,7 @@ Following are the different code samples for using `countdowntimer` method.
 		$("#cdt").countdowntimer({
 			startDate : "<?php echo date('Y/m/d H:i:s'); ?>",
 			dateAndTime : "2020/10/10 12:00:00",
-		        size : "lg",
+			size : "lg",
 			regexpMatchFormat : "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
 			regexpReplaceWith : "$1<sup>years</sup> / $2<sup>months</sup> / $3<sup>days</sup> / $4<sup>hours</sup> / $5<sup>minutes</sup> / $6<sup>seconds</sup>"
 		});
@@ -634,4 +634,3 @@ Licensed under the [MIT](https://github.com/harshen/jQuery-countdownTimer/blob/m
 and [GPLv3](https://github.com/harshen/jQuery-countdownTimer/blob/master/LICENSE-GPL.md) license.
 
 [⬆ back to top](#table-of-contents)
-

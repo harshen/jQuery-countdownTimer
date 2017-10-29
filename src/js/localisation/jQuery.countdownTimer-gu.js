@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
- * Gujarati localisation for jQuery CountdownTimer @version2.0.0
+ * Gujarati localisation for jQuery CountdownTimer @version2.0.1
  */
  
 (function($) {

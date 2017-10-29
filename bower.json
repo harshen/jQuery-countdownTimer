@@ -1,6 +1,6 @@
 {
    "name":"countdowntimer",
-   "version":"2.0.0",
+   "version":"2.0.1",
    "description":"Reverse count down jQuery plugin for displaying countdown as per need. Also displays current time.",
    "keywords":[
       "jquery",

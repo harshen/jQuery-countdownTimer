@@ -1,5 +1,5 @@
 /* https://harshen.github.io/jQuery-countdownTimer/
- * Bosnian Latin localisation for jQuery CountdownTimer @version2.0.0
+ * Bosnian Latin localisation for jQuery CountdownTimer @version2.0.1
  */
  
 (function($) {
