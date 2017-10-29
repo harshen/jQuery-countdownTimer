@@ -8,8 +8,8 @@ permalink: /docs/main/
 ```text
 dist/
 ├── js/
-|   ├── jQuery.countdownTimer.js
-|   ├── jQuery.countdownTimer.min.js   (compressed)
+|   ├── jQuery.countdownTimer.js   (37.16 kB)
+|   ├── jQuery.countdownTimer.min.js   (compressed - 18.28 kB)
 |   ├── localisation/
 |       └── jQuery.countdownTimer-[region-code].js (regional language support js files)
 ├── css/

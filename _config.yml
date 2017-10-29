@@ -6,8 +6,10 @@ description: >
   its different configuration options. It is a perfect match for any coupon, auction site or 
   product launch page. It also displays current time and comes with timezone and many regional 
   languages support.
-baseurl: https://harshen.github.io/jQuery-countdownTimer
+baseurl: //harshen.github.io/jQuery-countdownTimer
 git_address: https://github.com/harshen/jQuery-countdownTimer
+cdt_download: https://github.com/harshen/jQuery-countdownTimer/releases/download/2.0.0/jQuery.countdownTimer-2.0.0.zip
+cdt_test_jsfiddle: //jsfiddle.net/harshen/raok9h56/13/embedded/result/
 bootwatch: paper
 markdown: kramdown
 highlighter: rouge
