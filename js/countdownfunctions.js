@@ -1,12 +1,12 @@
 $(function() {
 	$('#future_date_format').countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		displayFormat : "YODHMS",
 		labelsFormat: true
 	});
 	
 	$('#future_date').countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		size : "md",
 		regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
 		regexpReplaceWith: "$1y / $2m / $3d $4:$5:$6",
@@ -16,7 +16,7 @@ $(function() {
 	});
 	
 	$("#specfuture_date").countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		size : "sm",
 		displayFormat : "YODHMS",
 		regexpMatchFormat: "([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})",
@@ -25,7 +25,7 @@ $(function() {
 	
 	$("#startend_date").countdowntimer({
 		startDate : "2016/01/01 00:00:00",
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		size : "lg",
 		displayFormat : "YODHMS"
 	});
@@ -83,37 +83,37 @@ $(function() {
 	});
 	
 	$("#label_timer").countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		labelsFormat : true,
 		displayFormat : "YODHMS"
 	});
 	
 	$("#xl_timer").countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		size : "xl",
 		displayFormat : "YODHMS"
 	});
 	
 	$("#lg_timer").countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		size : "lg",
 		displayFormat : "YODHMS"
 	});
 	
 	$("#md_timer").countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		size : "md",
 		displayFormat : "YODHMS"
 	});
 	
 	$("#sm_timer").countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		size : "sm",
 		displayFormat : "YODHMS"
 	});
 	
 	$("#xs_timer").countdowntimer({
-		dateAndTime : "2020/01/01 00:00:00",
+		dateAndTime : "2022/01/01 00:00:00",
 		size : "xs",
 		displayFormat : "YODHMS"
 	});
